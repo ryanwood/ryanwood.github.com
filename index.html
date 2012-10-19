@@ -38,7 +38,7 @@
   <header role="banner"><hgroup>
   <div id="logo">
   	<div id="logoLeft">{</div>
-  	<div id="logoText">mob</div>
+  	<div id="logoText"></div>
   	<div id="logoRight">}</div>
   	<div class="clear"></div>
   </div>
@@ -79,7 +79,7 @@
   <header>
     
       <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/past/2010/11/29/cowork-the-first-month/">CoWork: The First Month</a></h1>
+        <h1 class="entry-title"><a href="/past/2010/11/29/cowork-the-first-month/">Co Work: The First Month</a></h1>
       
     
     
@@ -96,7 +96,7 @@
   
 
 
-<time datetime="2010-11-29T14:04:00-05:00" pubdate data-updated="true">Nov 29<span>th</span>, 2010</time>
+<time datetime="2010-11-29T09:04:00-05:00" pubdate data-updated="true">Nov 29<span>th</span>, 2010</time>
         
       </p>
     
@@ -137,7 +137,580 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2010/09/29/when-will-this-project-be-done/">When Will This Project Be Done?</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-29T19:25:00-04:00" pubdate data-updated="true">Sep 29<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m in the process of figuring out the best way to estimate time and cost on a proposal for an agile project. It&#8217;s always a tricky thing. Agile, by nature, is constantly embracing change and harnessing it for the good of the product and the client. So how do you communicate when it will be done or for that matter estimate how much it will cost?</p>
+
+<p>I came across this quote from Ron Jeffries. It was so well put, I developed a giddy little grin and shouted out &#8220;AMEN&#8221;!</p>
+
+<p>So here&#8217;s an example of how he answers the question, &#8220;So when will this project be done?&#8221;.</p>
+
+<blockquote><p>Right now, this appears to be a 200-point project. Based on our performance on other projects (or a random guess), with N programmers on it, and your intimate involvement in the project, a project of this size will take between 4 and 6 months. However, we will be shipping software to you every two weeks, and we’ll be ticking off these feature stories to your satisfaction. The <em>good news</em> is that if you’re not satisfied, you can stop. The <em>better news</em> is that if you become satisfied before all the features are done, you can stop. The <em>bad news</em> is that you need to work with us to make it clear just what your satisfaction means. The <em>best news</em> is that whenever there are enough features working to make the program useful, you can ask us to prepare it for deployment, and we’ll do that. As we go forward, we’ll all see how fast we’re progressing, and our estimate of the time needed will improve. In every case, you’ll see what is going on, you’ll see concrete evidence of useful software running the tests that you specify, and you’ll know everything as soon as I know it. (emphasis mine)</p></blockquote>
+
+<p>Ron Jeffries, as quoted in Mike Cohn’s book &#8221;<em>Agile Estimating and Planning</em>&#8221;, Upper Saddle River, N.J.: Prentice Hall PTR – 2006</p>
+
+<p>Now that is well put!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2010/03/14/git-workflow-merge-or-rebase/">Git Workflow: Merge or Rebase</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-14T08:09:00-04:00" pubdate data-updated="true">Mar 14<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>One of the things that I&#8217;m passionate about is the development process. So much of the battle is won or lost by the type of development process you have. Leaning on a <a href="http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html">couple</a> <a href="http://nvie.com/archives/323">smart</a> guys, I&#8217;ve established a very clean workflow in git. If you haven&#8217;t read these posts, please do so before continuing. Both are excellent and will help clarify my question.</p>
+
+<p>The only discrepancy between them is how to handle feature branches. Should you interactively rebase (<code>git rebase -i</code>) your feature branch to one commit (or possibly a couple)?  <a href="http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html">Rein</a> takes this approach. <a href="http://nvie.com/archives/323">Vincent</a> on the other hand prefers to leave the feature branch intact and do a non-fast forward  merge (<code>git merge --no-ff feature</code>) to merge the feature back into the develop branch.</p>
+
+<p>I&#8217;ve tried it both ways. Neither is right or wrong and both have their advantages.</p>
+
+<p>Both go into the develop branch as a single commit, one as a normal commit and one as a merge commit. With the interactive rebase, you lose the granular commit history and potentially have a significantly larger commit. But you have a clear comment (with summary bullets if you follow Rein&#8217;s suggestion) as to what the commit it.</p>
+
+<p>With a forced merge commit, you maintain the feature branch history which is nice to track down where some error entered the code, but the merge commit is auto-commented with something like &#8217;<code>Merge branch 'feature-x'</code>&#8217;. It&#8217;s less clear when looking down the commit list of develop what is represented. Another downside of this approach is that you create a lot of unnecessary merge commits in the tree.</p>
+
+<p>At this point, I think I lean more toward the interactive rebase over the merge, but I&#8217;m still not thoroughly convince. Have an opinion, please let me know in the comments.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2010/03/01/webbynode-review/">Webbynode Review</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-01T03:04:00-05:00" pubdate data-updated="true">Mar 1<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For the past few years, I&#8217;ve used <a href="http://www.slicehost.com">Slicehost</a> for all my production hosting needs. I have been very happy with them. Recently I had a need for a new staging server. It takes a good amount of time to set up a site from scratch on Slicehost, which is fine for production servers, but I needed a site up quickly.</p>
+
+<p>I&#8217;ve been using <a href="http://heroku.com">Heroku&#8217;s incredible service</a> recently for staging sites. This site however had a ton of uploaded images and I really did want to go through the hassle of setting up S3 for use with Heroku. So I started looking for other options and found <a href="http://webbynode.com">Webbynode</a>.</p>
+
+<p>Their <a href="http://webbynode.com/features">ReadyStack</a> concept made it really easy to get a VPS server up and running quickly, yet you still have full access to the server as root (same as Slicehost). Their web user interface was clean and enjoyable to use. For my situation, it was the best of both worlds. I wasn&#8217;t limited by a read-only file system like Heroku and didn&#8217;t take nearly the time to set up and configure as Slicehost.</p>
+
+<p>I ran into one bug where you couldn&#8217;t use certain special characters in your root password, but got a prompt reply that they would look into it. Overall, I was very pleased. Good work guys.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2010/01/21/fat-free-crm-on-heroku/">Fat Free Crm on Heroku</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-21T18:34:00-05:00" pubdate data-updated="true">Jan 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I created a <a href="http://github.com/ryanwood/fat_free_crm">fork on github</a> to ease deployment of <a href="http://www.fatfreecrm.com/">Fat Free CRM</a> to <a href="http://heroku.com/">Heroku</a>. I found this <a href="http://saturnflyer.com/blog/jim/2009/09/08/fat-free-crm-on-heroku/">great post</a> about doing this very thing, but I wanted something a little simpler.</p>
+
+<p>For the impatient, here&#8217;s the quick Heroku install:</p>
+
+<pre><code>$ git clone git://github.com/ryanwood/fat_free_crm.git
+$ heroku create
+$ git push heroku master
+$ heroku rake crm:setup USERNAME=myusername PASSWORD=mypass EMAIL=my@email.com
+</code></pre>
+
+<p>Essentially, all I&#8217;ve done in this fork (as of this writing) is:</p>
+
+<ol>
+<li>Remove all of the stylesheet and javascript caching directives</li>
+<li>Fix a minor issue in the <code>config/config.ru</code> file</li>
+</ol>
+
+
+<p>You can always check it out <a href="http://wiki.github.com/ryanwood/fat_free_crm/installation-on-heroku">at the wiki</a>.</p>
+
+<p><em>UPDATE: Sept 20, 2010</em></p>
+
+<blockquote><p>I&#8217;ve updated <a href="http://github.com/ryanwood/fat_free_crm">my heroku-friendly fork on github</a> to use version 10.1 of FFC. Let me know if you have any issues. Thanks.</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2010/01/21/bye-bye-vlad/">Bye Bye Vlad</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-21T18:23:00-05:00" pubdate data-updated="true">Jan 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was initially enamored with the <a href="http://www.capify.org">capistrano</a> like features, yet simplicity of <a href="http://rubyhitsquad.com/Vlad_the_Deployer.html">Vlad the Deployer</a>. I spent 2 days getting the &#8220;simplifed deploy&#8221; working. Well, I thought it was anyway. Turns out that it wasn&#8217;t deploying the correct version from git.</p>
+
+<p>I found a <a href="http://github.com/jbarnette/vlad-git/issues#issue/1">bug in Vlad</a> which was fixed in master, but wasn&#8217;t in the gem. Then I found another bug in the <a href="http://github.com/jbarnette/vlad-git">vlad-git</a>. It turns out <a href="http://github.com/ktheory/">ktheory</a> had forks of each with the bugs fixed, but with different gems. I tried to use those, but still wasn&#8217;t getting the expected results.</p>
+
+<p><em>This is simplicity?!?!</em></p>
+
+<p>I never had any issue with <a href="http://www.capify.org">capistrano</a>. So I went back to old faithful. In 10 minutes, I was back to the beauty that is:</p>
+
+<pre><code>cap deploy
+</code></pre>
+
+<p>Here are a coupleparting thoughts on Vlad:</p>
+
+<ul>
+<li>I understand why they broke out all the plugins, but it was a hassle to deal with</li>
+<li>There was virtually no feedback as to what Vlad was doing during a deploy. I much prefer capistrano&#8217;s output on deploy.</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2010/01/15/ubuntu-hardy-lts-slice-with-nginx-passenger-git-vlad-and-more/">Ubuntu Hardy Lts Slice With Nginx, Passenger, Git, Vlad and More!</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-15T18:41:00-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I finally did it. I took notes as I built a server and am posting it (mainly so I don&#8217;t forget). In case someone wants to print this, I left most of the URLs in text so you&#8217;d be able to read them. So here it goes.</p>
+
+<p>I am doing this on <a href="http://slicehost.com">Slicehost</a> and decided to user Ubuntu Hardy 8.04.2 as the OS maily for the long term support.</p>
+
+<h1>Core Setup</h1>
+
+<h2>Initial Config</h2>
+
+<p><a href="http://articles.slicehost.com/2008/4/25/ubuntu-hardy-setup-page-1">http://articles.slicehost.com/2008/4/25/ubuntu-hardy-setup-page-1</a>
+<a href="http://articles.slicehost.com/2008/4/25/ubuntu-hardy-setup-page-2">http://articles.slicehost.com/2008/4/25/ubuntu-hardy-setup-page-2</a></p>
+
+<h2>Ruby Enterprise Edition, Nginx, Passenger</h2>
+
+<p>I followed this great guide:</p>
+
+<p><a href="http://antoniocangiano.com/2009/11/20/setup-ruby-enterprise-edition-nginx-and-passenger-aka-mod_rails-on-ubuntu/">http://antoniocangiano.com/2009/11/20/setup-ruby-enterprise-edition-nginx-and-passenger-aka-mod_rails-on-ubuntu/</a></p>
+
+<h2>Gems</h2>
+
+<p>The latest version of rubygems was install after install REE.</p>
+
+<pre><code>sudo gem update --system
+sudo gem update
+</code></pre>
+
+<p>Install all the gems I normally use. Just too many to list.</p>
+
+<p>Create/edit ~/.gemrc with</p>
+
+<pre><code>gem --no-ri --no-rdoc
+</code></pre>
+
+<p><a href="http://docs.rubygems.org/read/chapter/11">http://docs.rubygems.org/read/chapter/11</a></p>
+
+<h2>Git</h2>
+
+<p>If you use aptitude, you get an old version 1.5.4.x</p>
+
+<p><a href="http://serengetisunset.wordpress.com/2009/02/28/installing-git-1613-on-ubuntu-804/">http://serengetisunset.wordpress.com/2009/02/28/installing-git-1613-on-ubuntu-804/</a></p>
+
+<p>I did this to get the newest version installed. You need the build dependencies for it to work.</p>
+
+<pre><code>sudo apt-get remove git-core
+wget http://kernel.org/pub/software/scm/git/git-1.6.6.tar.gz
+sudo apt-get build-dep git-core
+tar xvzf git-1.6.6.tar.gz
+cd git-1.6.6/
+./configure --with-tcltk
+make
+sudo make install
+</code></pre>
+
+<p>Source: <a href="http://brunomiranda.com/past/2008/5/12/deploying_github_repository_with_vlad">http://brunomiranda.com/past/2008/5/12/deploying_github_repository_with_vlad</a></p>
+
+<h2>MySQL</h2>
+
+<p><a href="http://articles.slicehost.com/mysql">http://articles.slicehost.com/mysql</a></p>
+
+<pre><code>sudo gem install mysql
+</code></pre>
+
+<p><em>Migrate existing datbase from Heroku</em></p>
+
+<ol>
+<li>sudo gem install taps</li>
+<li>Copy your existing .heroku directory from your dev box to the deploy server.</li>
+<li>Create your production db</li>
+<li>rake db:migrate to get all the struct created</li>
+<li><p>Pull that db down. For the prayerthread app:</p>
+
+<pre><code>heroku db:pull --app prayerthread mysql://root:pass@localhost/prayerthread_production
+</code></pre></li>
+</ol>
+
+
+<p><a href="http://adamblog.heroku.com/past/2009/2/11/taps_for_easy_database_transfers/">http://adamblog.heroku.com/past/2009/2/11/taps_for_easy_database_transfers/</a></p>
+
+<h2>Mail</h2>
+
+<p><a href="http://articles.slicehost.com/email">http://articles.slicehost.com/email</a></p>
+
+<p><a href="http://articles.slicehost.com/2008/7/28/email-preparing-the-slice">http://articles.slicehost.com/2008/7/28/email-preparing-the-slice</a>
+<a href="http://articles.slicehost.com/2008/7/29/postfix-installation">http://articles.slicehost.com/2008/7/29/postfix-installation</a>
+<a href="http://articles.slicehost.com/2008/7/31/postfix-basic-settings-in-main-cf">http://articles.slicehost.com/2008/7/31/postfix-basic-settings-in-main-cf</a></p>
+
+<p>Good reference if you&#8217;re setting up a full scale mail server:</p>
+
+<p><a href="http://articles.slicehost.com/2008/9/2/mail-server-slice-setup">http://articles.slicehost.com/2008/9/2/mail-server-slice-setup</a></p>
+
+<h1>Deployment</h1>
+
+<p>Cobbled deploy recipe using:</p>
+
+<p><a href="http://dennisbloete.de/blog/rails-deployment-with-vlad-git-and-passenger">http://dennisbloete.de/blog/rails-deployment-with-vlad-git-and-passenger</a>
+<a href="http://snippets.aktagon.com/snippets/264-Vlad-deployment-recipe-for-Phusion-Passenger">http://snippets.aktagon.com/snippets/264-Vlad-deployment-recipe-for-Phusion-Passenger</a></p>
+
+<h2>Deployment Issues</h2>
+
+<p>There were 3 of them:</p>
+
+<ol>
+<li><p>Vlad error</p>
+
+<pre><code> Usage: /usr/bin/git-submodule [--quiet] [--cached] [add [-b branch]|status|init|update|summary [-n|--summary-limit ] []] [--] [...]
+ rake aborted!
+</code></pre>
+
+<p>The issue is because Hardy has an older version of git 1.5.x. Once I upgrade to 1.6, it is fine.</p>
+
+<p>There was a <a href="http://github.com/jbarnette/vlad-git/commit/f6f98fd994a12848b619fd5a82df355b348ac69b">commit</a>
+to fix this but it wasn&#8217;t yet in the gem.
+I manually patched the gem file. to address
+<a href="http://github.com/jbarnette/vlad-git/issues#issue/1">the</a>
+<a href="http://github.com/jbarnette/vlad-git/issues#issue/2">issue</a>.</p></li>
+<li><p>Cloning from a remote git repo</p>
+
+<p>This is an issue when cloning from unfuddle.com (or github.com). You need
+an ssh key to run vlad from the local box to the deploy server, but then vlad
+executes the clone from the deploy server so an additional key pair is needed.
+I looked at setting up ssh forwarding, but <a href="http://jordanelver.co.uk/articles/2008/07/10/rails-deployment-with-git-vlad-and-ssh-agent-forwarding/">these directions weren&#8217;t clear enough
+for me</a>.
+couldn&#8217;t find clear enough directions.</p>
+
+<p>Instead, I just created a deploy key pair and uploaded the pub key to unfuddle. That
+authenticated me but since I am connecting over a non-standard port, I still had an issue.</p></li>
+<li><p>SSH Config for non-standard port</p>
+
+<p>On the deploy box, I needed to tell SSH to use the standard port to connect to unfuddle.
+Add the following to <code>~/.ssh/config</code> as noted <a href="http://github.com/guides/addressing-authentication-problems-with-ssh">here, under theSSH Config section</a>:</p>
+
+<pre><code>Host sourcescape.unfuddle.com
+  Port 22
+  Hostname sourcescape.unfuddle.com
+  IdentityFile ~/.ssh/unfuddle_rsa
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+</code></pre></li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2010/01/15/why-i-left-heroku/">Why I Left Heroku</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-15T13:46:00-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I love <a href="http://heroku.com">Heroku</a>, I really do. They have eliminated nearly all of the hassle surrounding  deployment and server management in the Ruby/Rails world. Here&#8217;s the rub&#8230;</p>
+
+<p><em>They are simply not affordable for the little guy.</em></p>
+
+<p>&#8220;But Ryan&#8221;, you say, &#8220;what about the free plan?&#8221; The <a href="http://heroku.com/pricing#blossom-1">Blossom-1</a> plan is great and you do get a lot of value (including some really great <a href="http://addons.heroku.com/">free add ons</a>). The problem come when the site starts to grow.</p>
+
+<p>The free plan is basically  <a href="http://en.wikipedia.org/wiki/Loss_leader">loss leader</a> &#8211; &#8220;a product sold at a low price (at cost or below cost) to stimulate other, profitable sales.&#8221; It is how they <em>draw you in</em>, and draw you in they do. It is an awesome service.</p>
+
+<p>As soon as you need to grow the site just a bit, the price jumps significantly. It&#8217;s a great value at the entry level and, as best I can tell, for larger scale sites as well. It&#8217;s the smaller site with little to no revenue that feels the punch.</p>
+
+<p>Let&#8217;s get specific. I&#8217;m starting a new project and my choice was Heroku at $0/mo or <a href="http://slicehost.com">Slicehost</a> (who completely rocks as well) at $20/mo for 256MB VPS. A no-brainer. I chose Heroku. It was easier, simpler, and far less work.</p>
+
+<p>A couple weeks later, I have some beta users and want to roll out a new notification feature that will require some background processing. To get 2 application processes (<a href="https://heroku.com/how/dynos">dynos</a>) and run a background job, the price jumps from $0 to ~$72/mo (2 dynos + 1 worker = <a href="https://heroku.com/pricing#blossom-3">Blossom-3</a>). If the database grow beyond 5MB, the I would need to move to <a href="https://heroku.com/pricing#koi-3">Koi-3</a> at ~$87/mo.</p>
+
+<p>Pretty soon I need to send more than 200 emails per month so I need to add the SendGrid Premium add-on for $20/mo bringing the total up to ~$107/mo. On the Slicehost side, I have to do all the work of setting up, configuring, and maintaning the server, BUT I am still paying $20/mo. I may need to ramp up to the the 512MB slice but I&#8217;m still at only $38/mo.</p>
+
+<p>That&#8217;s an estimated ~$69/mo savings. When you are bootstrapping a small project, that it significant.</p>
+
+<p>Let me reiterate, I <em>love</em> heroku. I wish there was a plan that was more reasonable at the lower end. Since there is no comparable path on the Heroku side, I&#8217;ve decided to migrate the project back to <a href="http://www.slicehost.com/">Slicehost</a>.</p>
+
+<p>Stay tuned for my notes on building an Ubuntu slice. I&#8217;m going to document it this time. Really. I will.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/11/18/the-brave-new-world/">The Brave New World</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-18T17:39:00-05:00" pubdate data-updated="true">Nov 18<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My employer called me this summer while I was on vacation at the beach with my family to let me know that the doors to our office would be closed upon my return. Not the best news to get when you&#8217;re trying to get refreshed and renew the mind.</p>
+
+<p>Thankfully they gave us a three month window to work from home. That window ended October 31, 2009. I have been toying with the idea of making a living as a consultant for, say, about 10 years now but never had the courage to pull the trigger. I guess I can thank First Data for pulling that trigger for me.</p>
+
+<p>I&#8217;m not sure what the road ahead has in store for me, but my &#8220;spare time&#8221; consulting company <a href="http://www.sourcescape.com/">Sourcescape</a> is now getting pushed to center stage. I&#8217;m looking forward to the adventure.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/09/26/learning-erlang/">Learning Erlang</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-26T06:55:00-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was out on a date with my wife last week and in usual fashion, we popped into a Barnes &amp; Noble. She grabbed the lastest edition of People magazine and I wandered over the the &#8220;geek&#8221; section to browse what&#8217;s new. I picked up <a href="http://www.amazon.com/gp/product/193435600X?ie=UTF8&tag=knockonwood-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=193435600X">Programming Erlang: Software for a Concurrent World</a><img src="http://www.assoc-amazon.com/e/ir?t=knockonwood-20&l=as2&o=1&a=193435600X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />. I figured I would just skim through it put is back but I got hooked.</p>
+
+<p>I&#8217;m not sure why, but I really I got hooked. I bought the book. Being primarily a web developer, I have no idea what I&#8217;d even use Erlang for, but I haven&#8217;t really learned a different paradigm of programming a number of years. So the journey begins. Maybe I&#8217;ll burn out with it or maybe I&#8217;ll build a bridge and be able to see where I could use it in the future or maybe it will just help be to be a more well rounded developer. Time will tell.</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -150,7 +723,23 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/past/2010/11/29/cowork-the-first-month/">CoWork: The First Month</a>
+        <a href="/past/2010/11/29/cowork-the-first-month/">Co Work: The First Month</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/09/29/when-will-this-project-be-done/">When Will This Project Be Done?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/03/14/git-workflow-merge-or-rebase/">Git Workflow: Merge Or Rebase</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/03/01/webbynode-review/">Webbynode Review</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/01/21/fat-free-crm-on-heroku/">Fat Free Crm On Heroku</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[knock.on_wood]]></title>
   <link href="http://ryanwood.github.com/atom.xml" rel="self"/>
   <link href="http://ryanwood.github.com/"/>
-  <updated>2012-10-18T14:18:45-04:00</updated>
+  <updated>2012-10-18T23:04:31-04:00</updated>
   <id>http://ryanwood.github.com/</id>
   <author>
     <name><![CDATA[Ryan Wood]]></name>
@@ -14,9 +14,9 @@
 
   
   <entry>
-    <title type="html"><![CDATA[CoWork: The First Month]]></title>
+    <title type="html"><![CDATA[Co Work: The First Month]]></title>
     <link href="http://ryanwood.github.com/past/2010/11/29/cowork-the-first-month/"/>
-    <updated>2010-11-29T14:04:00-05:00</updated>
+    <updated>2010-11-29T09:04:00-05:00</updated>
     <id>http://ryanwood.github.com/past/2010/11/29/cowork-the-first-month</id>
     <content type="html"><![CDATA[<p>I first saw &#8220;cowork&#8221; as a concept on a Twitter post a year or so ago. Not knowing what it was, it forced me to create a new mental category about work environments. I come from a pretty traditional work environment. For the past 10 years, I&#8217;ve worked in a fairly typical office space. It was owned (or leased) by the company by which I was employed. I had a private office with door. It was certainly better than the cubicles of my youth, but I never thought much about it. It was just the office that you had to go to each day as a part of the job.</p>
 
@@ -45,6 +45,697 @@
 <p>If you&#8217;re interested in seeing how things unfold, please join us on the journey. You can follow us <a href="http://twitter.com/cowork">@cowork</a> on Twitter or check out the <a href="http://www.flickr.com/groups/cowork/pool/with/5199226596/">CoWork photo stream</a> on Flickr.</p>
 
 <p>As always, I&#8217;ll occasionally blog <a href="http://ryanwood.com/">right here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[When Will This Project Be Done?]]></title>
+    <link href="http://ryanwood.github.com/past/2010/09/29/when-will-this-project-be-done/"/>
+    <updated>2010-09-29T19:25:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2010/09/29/when-will-this-project-be-done</id>
+    <content type="html"><![CDATA[<p>I&#8217;m in the process of figuring out the best way to estimate time and cost on a proposal for an agile project. It&#8217;s always a tricky thing. Agile, by nature, is constantly embracing change and harnessing it for the good of the product and the client. So how do you communicate when it will be done or for that matter estimate how much it will cost?</p>
+
+<p>I came across this quote from Ron Jeffries. It was so well put, I developed a giddy little grin and shouted out &#8220;AMEN&#8221;!</p>
+
+<p>So here&#8217;s an example of how he answers the question, &#8220;So when will this project be done?&#8221;.</p>
+
+<blockquote><p>Right now, this appears to be a 200-point project. Based on our performance on other projects (or a random guess), with N programmers on it, and your intimate involvement in the project, a project of this size will take between 4 and 6 months. However, we will be shipping software to you every two weeks, and we’ll be ticking off these feature stories to your satisfaction. The <em>good news</em> is that if you’re not satisfied, you can stop. The <em>better news</em> is that if you become satisfied before all the features are done, you can stop. The <em>bad news</em> is that you need to work with us to make it clear just what your satisfaction means. The <em>best news</em> is that whenever there are enough features working to make the program useful, you can ask us to prepare it for deployment, and we’ll do that. As we go forward, we’ll all see how fast we’re progressing, and our estimate of the time needed will improve. In every case, you’ll see what is going on, you’ll see concrete evidence of useful software running the tests that you specify, and you’ll know everything as soon as I know it. (emphasis mine)</p></blockquote>
+
+<p>Ron Jeffries, as quoted in Mike Cohn’s book &#8221;<em>Agile Estimating and Planning</em>&#8221;, Upper Saddle River, N.J.: Prentice Hall PTR – 2006</p>
+
+<p>Now that is well put!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git Workflow: Merge Or Rebase]]></title>
+    <link href="http://ryanwood.github.com/past/2010/03/14/git-workflow-merge-or-rebase/"/>
+    <updated>2010-03-14T08:09:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2010/03/14/git-workflow-merge-or-rebase</id>
+    <content type="html"><![CDATA[<p>One of the things that I&#8217;m passionate about is the development process. So much of the battle is won or lost by the type of development process you have. Leaning on a <a href="http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html">couple</a> <a href="http://nvie.com/archives/323">smart</a> guys, I&#8217;ve established a very clean workflow in git. If you haven&#8217;t read these posts, please do so before continuing. Both are excellent and will help clarify my question.</p>
+
+<p>The only discrepancy between them is how to handle feature branches. Should you interactively rebase (<code>git rebase -i</code>) your feature branch to one commit (or possibly a couple)?  <a href="http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html">Rein</a> takes this approach. <a href="http://nvie.com/archives/323">Vincent</a> on the other hand prefers to leave the feature branch intact and do a non-fast forward  merge (<code>git merge --no-ff feature</code>) to merge the feature back into the develop branch.</p>
+
+<p>I&#8217;ve tried it both ways. Neither is right or wrong and both have their advantages.</p>
+
+<p>Both go into the develop branch as a single commit, one as a normal commit and one as a merge commit. With the interactive rebase, you lose the granular commit history and potentially have a significantly larger commit. But you have a clear comment (with summary bullets if you follow Rein&#8217;s suggestion) as to what the commit it.</p>
+
+<p>With a forced merge commit, you maintain the feature branch history which is nice to track down where some error entered the code, but the merge commit is auto-commented with something like &#8217;<code>Merge branch 'feature-x'</code>&#8217;. It&#8217;s less clear when looking down the commit list of develop what is represented. Another downside of this approach is that you create a lot of unnecessary merge commits in the tree.</p>
+
+<p>At this point, I think I lean more toward the interactive rebase over the merge, but I&#8217;m still not thoroughly convince. Have an opinion, please let me know in the comments.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Webbynode Review]]></title>
+    <link href="http://ryanwood.github.com/past/2010/03/01/webbynode-review/"/>
+    <updated>2010-03-01T03:04:00-05:00</updated>
+    <id>http://ryanwood.github.com/past/2010/03/01/webbynode-review</id>
+    <content type="html"><![CDATA[<p>For the past few years, I&#8217;ve used <a href="http://www.slicehost.com">Slicehost</a> for all my production hosting needs. I have been very happy with them. Recently I had a need for a new staging server. It takes a good amount of time to set up a site from scratch on Slicehost, which is fine for production servers, but I needed a site up quickly.</p>
+
+<p>I&#8217;ve been using <a href="http://heroku.com">Heroku&#8217;s incredible service</a> recently for staging sites. This site however had a ton of uploaded images and I really did want to go through the hassle of setting up S3 for use with Heroku. So I started looking for other options and found <a href="http://webbynode.com">Webbynode</a>.</p>
+
+<p>Their <a href="http://webbynode.com/features">ReadyStack</a> concept made it really easy to get a VPS server up and running quickly, yet you still have full access to the server as root (same as Slicehost). Their web user interface was clean and enjoyable to use. For my situation, it was the best of both worlds. I wasn&#8217;t limited by a read-only file system like Heroku and didn&#8217;t take nearly the time to set up and configure as Slicehost.</p>
+
+<p>I ran into one bug where you couldn&#8217;t use certain special characters in your root password, but got a prompt reply that they would look into it. Overall, I was very pleased. Good work guys.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fat Free Crm On Heroku]]></title>
+    <link href="http://ryanwood.github.com/past/2010/01/21/fat-free-crm-on-heroku/"/>
+    <updated>2010-01-21T18:34:00-05:00</updated>
+    <id>http://ryanwood.github.com/past/2010/01/21/fat-free-crm-on-heroku</id>
+    <content type="html"><![CDATA[<p>I created a <a href="http://github.com/ryanwood/fat_free_crm">fork on github</a> to ease deployment of <a href="http://www.fatfreecrm.com/">Fat Free CRM</a> to <a href="http://heroku.com/">Heroku</a>. I found this <a href="http://saturnflyer.com/blog/jim/2009/09/08/fat-free-crm-on-heroku/">great post</a> about doing this very thing, but I wanted something a little simpler.</p>
+
+<p>For the impatient, here&#8217;s the quick Heroku install:</p>
+
+<pre><code>$ git clone git://github.com/ryanwood/fat_free_crm.git
+$ heroku create
+$ git push heroku master
+$ heroku rake crm:setup USERNAME=myusername PASSWORD=mypass EMAIL=my@email.com
+</code></pre>
+
+<p>Essentially, all I&#8217;ve done in this fork (as of this writing) is:</p>
+
+<ol>
+<li>Remove all of the stylesheet and javascript caching directives</li>
+<li>Fix a minor issue in the <code>config/config.ru</code> file</li>
+</ol>
+
+
+<p>You can always check it out <a href="http://wiki.github.com/ryanwood/fat_free_crm/installation-on-heroku">at the wiki</a>.</p>
+
+<p><em>UPDATE: Sept 20, 2010</em></p>
+
+<blockquote><p>I&#8217;ve updated <a href="http://github.com/ryanwood/fat_free_crm">my heroku-friendly fork on github</a> to use version 10.1 of FFC. Let me know if you have any issues. Thanks.</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Bye Bye Vlad]]></title>
+    <link href="http://ryanwood.github.com/past/2010/01/21/bye-bye-vlad/"/>
+    <updated>2010-01-21T18:23:00-05:00</updated>
+    <id>http://ryanwood.github.com/past/2010/01/21/bye-bye-vlad</id>
+    <content type="html"><![CDATA[<p>I was initially enamored with the <a href="http://www.capify.org">capistrano</a> like features, yet simplicity of <a href="http://rubyhitsquad.com/Vlad_the_Deployer.html">Vlad the Deployer</a>. I spent 2 days getting the &#8220;simplifed deploy&#8221; working. Well, I thought it was anyway. Turns out that it wasn&#8217;t deploying the correct version from git.</p>
+
+<p>I found a <a href="http://github.com/jbarnette/vlad-git/issues#issue/1">bug in Vlad</a> which was fixed in master, but wasn&#8217;t in the gem. Then I found another bug in the <a href="http://github.com/jbarnette/vlad-git">vlad-git</a>. It turns out <a href="http://github.com/ktheory/">ktheory</a> had forks of each with the bugs fixed, but with different gems. I tried to use those, but still wasn&#8217;t getting the expected results.</p>
+
+<p><em>This is simplicity?!?!</em></p>
+
+<p>I never had any issue with <a href="http://www.capify.org">capistrano</a>. So I went back to old faithful. In 10 minutes, I was back to the beauty that is:</p>
+
+<pre><code>cap deploy
+</code></pre>
+
+<p>Here are a coupleparting thoughts on Vlad:</p>
+
+<ul>
+<li>I understand why they broke out all the plugins, but it was a hassle to deal with</li>
+<li>There was virtually no feedback as to what Vlad was doing during a deploy. I much prefer capistrano&#8217;s output on deploy.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu Hardy Lts Slice With Nginx, Passenger, Git, Vlad And More!]]></title>
+    <link href="http://ryanwood.github.com/past/2010/01/15/ubuntu-hardy-lts-slice-with-nginx-passenger-git-vlad-and-more/"/>
+    <updated>2010-01-15T18:41:00-05:00</updated>
+    <id>http://ryanwood.github.com/past/2010/01/15/ubuntu-hardy-lts-slice-with-nginx-passenger-git-vlad-and-more</id>
+    <content type="html"><![CDATA[<p>I finally did it. I took notes as I built a server and am posting it (mainly so I don&#8217;t forget). In case someone wants to print this, I left most of the URLs in text so you&#8217;d be able to read them. So here it goes.</p>
+
+<p>I am doing this on <a href="http://slicehost.com">Slicehost</a> and decided to user Ubuntu Hardy 8.04.2 as the OS maily for the long term support.</p>
+
+<h1>Core Setup</h1>
+
+<h2>Initial Config</h2>
+
+<p><a href="http://articles.slicehost.com/2008/4/25/ubuntu-hardy-setup-page-1">http://articles.slicehost.com/2008/4/25/ubuntu-hardy-setup-page-1</a>
+<a href="http://articles.slicehost.com/2008/4/25/ubuntu-hardy-setup-page-2">http://articles.slicehost.com/2008/4/25/ubuntu-hardy-setup-page-2</a></p>
+
+<h2>Ruby Enterprise Edition, Nginx, Passenger</h2>
+
+<p>I followed this great guide:</p>
+
+<p><a href="http://antoniocangiano.com/2009/11/20/setup-ruby-enterprise-edition-nginx-and-passenger-aka-mod_rails-on-ubuntu/">http://antoniocangiano.com/2009/11/20/setup-ruby-enterprise-edition-nginx-and-passenger-aka-mod_rails-on-ubuntu/</a></p>
+
+<h2>Gems</h2>
+
+<p>The latest version of rubygems was install after install REE.</p>
+
+<pre><code>sudo gem update --system
+sudo gem update
+</code></pre>
+
+<p>Install all the gems I normally use. Just too many to list.</p>
+
+<p>Create/edit ~/.gemrc with</p>
+
+<pre><code>gem --no-ri --no-rdoc
+</code></pre>
+
+<p><a href="http://docs.rubygems.org/read/chapter/11">http://docs.rubygems.org/read/chapter/11</a></p>
+
+<h2>Git</h2>
+
+<p>If you use aptitude, you get an old version 1.5.4.x</p>
+
+<p><a href="http://serengetisunset.wordpress.com/2009/02/28/installing-git-1613-on-ubuntu-804/">http://serengetisunset.wordpress.com/2009/02/28/installing-git-1613-on-ubuntu-804/</a></p>
+
+<p>I did this to get the newest version installed. You need the build dependencies for it to work.</p>
+
+<pre><code>sudo apt-get remove git-core
+wget http://kernel.org/pub/software/scm/git/git-1.6.6.tar.gz
+sudo apt-get build-dep git-core
+tar xvzf git-1.6.6.tar.gz
+cd git-1.6.6/
+./configure --with-tcltk
+make
+sudo make install
+</code></pre>
+
+<p>Source: <a href="http://brunomiranda.com/past/2008/5/12/deploying_github_repository_with_vlad">http://brunomiranda.com/past/2008/5/12/deploying_github_repository_with_vlad</a></p>
+
+<h2>MySQL</h2>
+
+<p><a href="http://articles.slicehost.com/mysql">http://articles.slicehost.com/mysql</a></p>
+
+<pre><code>sudo gem install mysql
+</code></pre>
+
+<p><em>Migrate existing datbase from Heroku</em></p>
+
+<ol>
+<li>sudo gem install taps</li>
+<li>Copy your existing .heroku directory from your dev box to the deploy server.</li>
+<li>Create your production db</li>
+<li>rake db:migrate to get all the struct created</li>
+<li><p>Pull that db down. For the prayerthread app:</p>
+
+<pre><code>heroku db:pull --app prayerthread mysql://root:pass@localhost/prayerthread_production
+</code></pre></li>
+</ol>
+
+
+<p><a href="http://adamblog.heroku.com/past/2009/2/11/taps_for_easy_database_transfers/">http://adamblog.heroku.com/past/2009/2/11/taps_for_easy_database_transfers/</a></p>
+
+<h2>Mail</h2>
+
+<p><a href="http://articles.slicehost.com/email">http://articles.slicehost.com/email</a></p>
+
+<p><a href="http://articles.slicehost.com/2008/7/28/email-preparing-the-slice">http://articles.slicehost.com/2008/7/28/email-preparing-the-slice</a>
+<a href="http://articles.slicehost.com/2008/7/29/postfix-installation">http://articles.slicehost.com/2008/7/29/postfix-installation</a>
+<a href="http://articles.slicehost.com/2008/7/31/postfix-basic-settings-in-main-cf">http://articles.slicehost.com/2008/7/31/postfix-basic-settings-in-main-cf</a></p>
+
+<p>Good reference if you&#8217;re setting up a full scale mail server:</p>
+
+<p><a href="http://articles.slicehost.com/2008/9/2/mail-server-slice-setup">http://articles.slicehost.com/2008/9/2/mail-server-slice-setup</a></p>
+
+<h1>Deployment</h1>
+
+<p>Cobbled deploy recipe using:</p>
+
+<p><a href="http://dennisbloete.de/blog/rails-deployment-with-vlad-git-and-passenger">http://dennisbloete.de/blog/rails-deployment-with-vlad-git-and-passenger</a>
+<a href="http://snippets.aktagon.com/snippets/264-Vlad-deployment-recipe-for-Phusion-Passenger">http://snippets.aktagon.com/snippets/264-Vlad-deployment-recipe-for-Phusion-Passenger</a></p>
+
+<h2>Deployment Issues</h2>
+
+<p>There were 3 of them:</p>
+
+<ol>
+<li><p>Vlad error</p>
+
+<pre><code> Usage: /usr/bin/git-submodule [--quiet] [--cached] [add [-b branch]|status|init|update|summary [-n|--summary-limit ] []] [--] [...]
+ rake aborted!
+</code></pre>
+
+<p>The issue is because Hardy has an older version of git 1.5.x. Once I upgrade to 1.6, it is fine.</p>
+
+<p>There was a <a href="http://github.com/jbarnette/vlad-git/commit/f6f98fd994a12848b619fd5a82df355b348ac69b">commit</a>
+to fix this but it wasn&#8217;t yet in the gem.
+I manually patched the gem file. to address
+<a href="http://github.com/jbarnette/vlad-git/issues#issue/1">the</a>
+<a href="http://github.com/jbarnette/vlad-git/issues#issue/2">issue</a>.</p></li>
+<li><p>Cloning from a remote git repo</p>
+
+<p>This is an issue when cloning from unfuddle.com (or github.com). You need
+an ssh key to run vlad from the local box to the deploy server, but then vlad
+executes the clone from the deploy server so an additional key pair is needed.
+I looked at setting up ssh forwarding, but <a href="http://jordanelver.co.uk/articles/2008/07/10/rails-deployment-with-git-vlad-and-ssh-agent-forwarding/">these directions weren&#8217;t clear enough
+for me</a>.
+couldn&#8217;t find clear enough directions.</p>
+
+<p>Instead, I just created a deploy key pair and uploaded the pub key to unfuddle. That
+authenticated me but since I am connecting over a non-standard port, I still had an issue.</p></li>
+<li><p>SSH Config for non-standard port</p>
+
+<p>On the deploy box, I needed to tell SSH to use the standard port to connect to unfuddle.
+Add the following to <code>~/.ssh/config</code> as noted <a href="http://github.com/guides/addressing-authentication-problems-with-ssh">here, under theSSH Config section</a>:</p>
+
+<pre><code>Host sourcescape.unfuddle.com
+  Port 22
+  Hostname sourcescape.unfuddle.com
+  IdentityFile ~/.ssh/unfuddle_rsa
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+</code></pre></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why I Left Heroku]]></title>
+    <link href="http://ryanwood.github.com/past/2010/01/15/why-i-left-heroku/"/>
+    <updated>2010-01-15T13:46:00-05:00</updated>
+    <id>http://ryanwood.github.com/past/2010/01/15/why-i-left-heroku</id>
+    <content type="html"><![CDATA[<p>I love <a href="http://heroku.com">Heroku</a>, I really do. They have eliminated nearly all of the hassle surrounding  deployment and server management in the Ruby/Rails world. Here&#8217;s the rub&#8230;</p>
+
+<p><em>They are simply not affordable for the little guy.</em></p>
+
+<p>&#8220;But Ryan&#8221;, you say, &#8220;what about the free plan?&#8221; The <a href="http://heroku.com/pricing#blossom-1">Blossom-1</a> plan is great and you do get a lot of value (including some really great <a href="http://addons.heroku.com/">free add ons</a>). The problem come when the site starts to grow.</p>
+
+<p>The free plan is basically  <a href="http://en.wikipedia.org/wiki/Loss_leader">loss leader</a> &#8211; &#8220;a product sold at a low price (at cost or below cost) to stimulate other, profitable sales.&#8221; It is how they <em>draw you in</em>, and draw you in they do. It is an awesome service.</p>
+
+<p>As soon as you need to grow the site just a bit, the price jumps significantly. It&#8217;s a great value at the entry level and, as best I can tell, for larger scale sites as well. It&#8217;s the smaller site with little to no revenue that feels the punch.</p>
+
+<p>Let&#8217;s get specific. I&#8217;m starting a new project and my choice was Heroku at $0/mo or <a href="http://slicehost.com">Slicehost</a> (who completely rocks as well) at $20/mo for 256MB VPS. A no-brainer. I chose Heroku. It was easier, simpler, and far less work.</p>
+
+<p>A couple weeks later, I have some beta users and want to roll out a new notification feature that will require some background processing. To get 2 application processes (<a href="https://heroku.com/how/dynos">dynos</a>) and run a background job, the price jumps from $0 to ~$72/mo (2 dynos + 1 worker = <a href="https://heroku.com/pricing#blossom-3">Blossom-3</a>). If the database grow beyond 5MB, the I would need to move to <a href="https://heroku.com/pricing#koi-3">Koi-3</a> at ~$87/mo.</p>
+
+<p>Pretty soon I need to send more than 200 emails per month so I need to add the SendGrid Premium add-on for $20/mo bringing the total up to ~$107/mo. On the Slicehost side, I have to do all the work of setting up, configuring, and maintaning the server, BUT I am still paying $20/mo. I may need to ramp up to the the 512MB slice but I&#8217;m still at only $38/mo.</p>
+
+<p>That&#8217;s an estimated ~$69/mo savings. When you are bootstrapping a small project, that it significant.</p>
+
+<p>Let me reiterate, I <em>love</em> heroku. I wish there was a plan that was more reasonable at the lower end. Since there is no comparable path on the Heroku side, I&#8217;ve decided to migrate the project back to <a href="http://www.slicehost.com/">Slicehost</a>.</p>
+
+<p>Stay tuned for my notes on building an Ubuntu slice. I&#8217;m going to document it this time. Really. I will.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Brave New World]]></title>
+    <link href="http://ryanwood.github.com/past/2009/11/18/the-brave-new-world/"/>
+    <updated>2009-11-18T17:39:00-05:00</updated>
+    <id>http://ryanwood.github.com/past/2009/11/18/the-brave-new-world</id>
+    <content type="html"><![CDATA[<p>My employer called me this summer while I was on vacation at the beach with my family to let me know that the doors to our office would be closed upon my return. Not the best news to get when you&#8217;re trying to get refreshed and renew the mind.</p>
+
+<p>Thankfully they gave us a three month window to work from home. That window ended October 31, 2009. I have been toying with the idea of making a living as a consultant for, say, about 10 years now but never had the courage to pull the trigger. I guess I can thank First Data for pulling that trigger for me.</p>
+
+<p>I&#8217;m not sure what the road ahead has in store for me, but my &#8220;spare time&#8221; consulting company <a href="http://www.sourcescape.com/">Sourcescape</a> is now getting pushed to center stage. I&#8217;m looking forward to the adventure.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learning Erlang]]></title>
+    <link href="http://ryanwood.github.com/past/2009/09/26/learning-erlang/"/>
+    <updated>2009-09-26T06:55:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/09/26/learning-erlang</id>
+    <content type="html"><![CDATA[<p>I was out on a date with my wife last week and in usual fashion, we popped into a Barnes &amp; Noble. She grabbed the lastest edition of People magazine and I wandered over the the &#8220;geek&#8221; section to browse what&#8217;s new. I picked up <a href="http://www.amazon.com/gp/product/193435600X?ie=UTF8&tag=knockonwood-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=193435600X">Programming Erlang: Software for a Concurrent World</a><img src="http://www.assoc-amazon.com/e/ir?t=knockonwood-20&l=as2&o=1&a=193435600X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />. I figured I would just skim through it put is back but I got hooked.</p>
+
+<p>I&#8217;m not sure why, but I really I got hooked. I bought the book. Being primarily a web developer, I have no idea what I&#8217;d even use Erlang for, but I haven&#8217;t really learned a different paradigm of programming a number of years. So the journey begins. Maybe I&#8217;ll burn out with it or maybe I&#8217;ll build a bridge and be able to see where I could use it in the future or maybe it will just help be to be a more well rounded developer. Time will tell.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Deploying Refinery On Heroku]]></title>
+    <link href="http://ryanwood.github.com/past/2009/09/18/deploying-refinery-on-heroku/"/>
+    <updated>2009-09-18T09:50:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/09/18/deploying-refinery-on-heroku</id>
+    <content type="html"><![CDATA[<p>Recently, I have been exploring <a href="http://refinerycms.com/">Refinery</a>, a relatively new Rails-based CMS. So far I&#8217;ve been very impressed. One of the sites I been implementing in Refinery will be deployed to <a href="http://heroku.com/">Heroku</a> which has <a href="http://docs.heroku.com/constraints">some constraints</a> which cause the out-of-the-box version of Refinery to fail. Here&#8217;s how to get it working if you&#8217;re interested.</p>
+
+<p><em>Updated [9/19/2009]: After corresponding with <a href="http://www.d-jones.com/">David</a> at <a href="http://resolvedigital.co.nz/">Resolve Digital</a>, I added step 2 and corrected a couple of file references. Thanks for the input David.</em></p>
+
+<h2>Prerequiste</h2>
+
+<p>You will to have or create an new account with <a href="http://aws.amazonaws.com/s3">Amazon S3</a> or another third party storage solution supported by <a href="http://github.com/technoweenie/attachment_fu">attachment_fu</a>.</p>
+
+<h2>Step 1: Config your buckets</h2>
+
+<p>You will need to update your <code>config/amazon_s3.yml</code> file to include you bucket name, access key, and secret key.</p>
+
+<pre><code>development:
+  bucket_name: myapp-development
+  access_key_id: XXXX
+  secret_access_key: XXXX
+  distribution_domain: XXXX.cloudfront.net
+
+... same for test and production
+</code></pre>
+
+<p><em>Note: You will need to create this bucket before you can use it. I used <a href="http://cyberduck.ch/">CyberDuck</a> on the mac to connect S3 and create the initial buckets. Check out the bottom of  <a href="http://www.hongkiat.com/blog/amazon-s3-the-beginners-guide/">this post</a> for some alternatives.</em></p>
+
+<h2>Step 2: Override the files we will be updating so they don&#8217;t conflict when Refinery is updated</h2>
+
+<p>This is the &#8220;approved&#8221; approach to take if you are changing elements of Refinery. Simply override the particular file in <code>app</code> directory and your Rails app will load it instead of the Refinery equivalent in the plugins directory. Let&#8217;s override the models we need to update&#8230;</p>
+
+<pre><code>mkdir -p app/models
+cp vendor/plugins/images/app/models/image.rb app/models
+cp vendor/plugins/inquiries/app/models/inquiry.rb app/models
+cp vendor/plugins/news/app/models/news_item.rb app/models
+cp vendor/plugins/pages/app/models/page.rb app/models
+cp vendor/plugins/resources/app/models/resource.rb app/models
+</code></pre>
+
+<h2>Step 3: Override Images and Resources to use S3</h2>
+
+<p>In <code>app/models/image.rb</code>, you will need change the options for has_attachment:</p>
+
+<pre><code># From this...
+has_attachment :content_type =&gt; :image, 
+               :storage =&gt; :file_system,
+               :path_prefix =&gt; 'public/images/system',
+               :processor =&gt; 'Rmagick', 
+               ...
+
+# To this...
+has_attachment :content_type =&gt; :image,
+               :storage =&gt; :s3,
+               :processor =&gt; 'Rmagick',
+               ...
+</code></pre>
+
+<p>And in <code>app/models/resource.rb</code>:</p>
+
+<pre><code># From this...
+has_attachment :storage =&gt; :file_system,
+       :size =&gt; 0.kilobytes..50.megabytes,
+       :path_prefix =&gt; 'public/system/resources'
+
+# To this
+has_attachment :storage =&gt; :s3
+       :size =&gt; 0.kilobytes..50.megabytes #,
+</code></pre>
+
+<p>This should now send uploads to S3.</p>
+
+<h2>Step 4: Update search index location</h2>
+
+<p>We now need to update the options hash for <a href="http://douglasfshearer.com/blog/rails-plugin-acts_as_indexed">acts_as_indexed</a> in each of the models that we overwrote in step 1. You will need to add the following key pair to the hash:</p>
+
+<pre><code>:index_file =&gt; [RAILS_ROOT,'tmp','index']
+</code></pre>
+
+<p>For example, in <code>app/models/image.rb</code></p>
+
+<pre><code>acts_as_indexed :fields =&gt; [:title]
+# becomes
+acts_as_indexed :fields =&gt; [:title], :index_file =&gt; [RAILS_ROOT,'tmp','index']
+</code></pre>
+
+<p>Make sure you find each instance where acts_as_indexed is used. It would be nice if you could just update a global setting that would override the default, but as of this writing, you have to do it on each model.</p>
+
+<h2>Step 5: Create a .gems file</h2>
+
+<p>Heroku requires a <code>.gems</code> file for it to install the required gems on their servers. Create <code>.gems</code> in the root directory with the following content.</p>
+
+<pre><code>unicode
+# Add any other gems you require here
+</code></pre>
+
+<h2>Step 6: Deploy</h2>
+
+<p>Now comes the easy part&#8230;</p>
+
+<pre><code>git push heroku master
+</code></pre>
+
+<p>Tada &#8230; you&#8217;re live on Heroku.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Haml/Sass 2.2 Is Out]]></title>
+    <link href="http://ryanwood.github.com/past/2009/07/07/hamlsass-22-is-out/"/>
+    <updated>2009-07-07T05:28:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/07/07/hamlsass-22-is-out</id>
+    <content type="html"><![CDATA[<p>Anyone who knows me knows that I&#8217;m a big fan of Haml and Sass. They simplify and clean up so much HTML-related code. The new version promises some <a href="http://nex-3.com/posts/84-haml-sass-2-2-released">nice new features</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Improving By Gits And Bounds]]></title>
+    <link href="http://ryanwood.github.com/past/2009/06/20/improving-by-gits-and-bounds/"/>
+    <updated>2009-06-20T08:23:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/06/20/improving-by-gits-and-bounds</id>
+    <content type="html"><![CDATA[<p>Subversion (SVN) has been a staple of my development process since I ran kicking and screaming out of the Visual SourceSafe (VSS) dungeon many years old. It has served me very well. I used the basic edit-commit-merge life-cycle and all was good. Here’s the strange thing.</p>
+
+<p><strong>I didn’t really learn how to use subversion specifically, or really version control in general, until I quit using subversion and started using git.</strong></p>
+
+<p>The evolution started with VSS. Essentially it was a code backup. We did the occasionally file rollback, but that was it. Write code and periodically check it in, comment-less of course. I had a brief affair with SourceGear Vault. It was a much improved replacement for VSS.  Though it fixed a lot of the bugs and other issues in VSS, but as I move more away from the Microsoft world, it became less useful.</p>
+
+<p>Enter subversion.</p>
+
+<p>What a breath of fresh air. Edit-merge-commit. Open source. Quicker. Concurrent development. Nice. Then I started learning about branches and tags. Wow, those could be useful. “Could” being the important word. Using branches and merging in SVN is certainly possible, but trivial. So I used them occasionally, but never with confidence or as any core part of my development process.</p>
+
+<p>Then the cool kids started chanting “git, git, git”.</p>
+
+<p>So I checked out what all the fuss was about like any good hopelessly addicted to new technology freak would do. Git was hard and a bit scary. Yeah, the whole “clone, add, commit” thing was fine, but start talking about rebasing and my head hurt. Git 101 tutorials will only take you so far and the rest you have to learn in the trenches.</p>
+
+<p>I’m a few months out now and I wouldn’t go back. Oh wait. I have to. I still have a slew of projects in SVN. As I go back to those projects, I’m using SVN in ways I never would have previously.</p>
+
+<p>Yesterday I had a bug to fix in a production app on Rails 2.0.1. It has been running without issue for over a year. So I go into my dev machine to make a quick fix and realize that I started to upgrade the app to 2.1.0 about 6 months ago. I have 6 or so commits but never deployed any of the changes. I can’t deploy them because they were never finished. mmmm.</p>
+
+<p>Before git, I’d probably just make the changes on the server and back the code into the trunk. Gong. Being much more comfortable with branching and merging from working with git, I simply created a stable-1.0 branch off of the revision that was last deployed, applied the changes there. A quick update to my deploy.rb file pull from the branch rather than trunk and then<code>cap deploy</code>. Done.</p>
+
+<p>My point of this ramble is that choosing to work with new (different) technologies matures you as a developer. And the things you learn will give you a new, and generally better, perspective even when you work within your wheelhouse.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Slither: A Dsl For Parsing Fixed Width Text Files]]></title>
+    <link href="http://ryanwood.github.com/past/2009/06/12/slither-a-dsl-for-parsing-fixed-width-text-files/"/>
+    <updated>2009-06-12T12:54:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/06/12/slither-a-dsl-for-parsing-fixed-width-text-files</id>
+    <content type="html"><![CDATA[<p>Given the rage over XML and web services over the past decade or so, I was shocked at how common it is to still exchange data using a fixed-width file format over FTP. I guess it&#8217;s all about those mainframes and backward compatibility, but &#8220;WOW&#8221;.</p>
+
+<p>At <a href="http://firstdata.com">work</a> I have had numerous projects (mostly in Ruby) that involve creating and/or reading these fixed-width text files. Occasionally, I have the luxury of a CSV file and can use <a href="http://fastercsv.rubyforge.org/">FasterCSV</a> to take care of business. To date, I haven&#8217;t had a single project that used XML.</p>
+
+<p>Given the need, I decided to create an open source project. I had to work on it primarily on my own time, as our work environment is not what you would call &#8220;open source friendly&#8221;. So, <a href="http://github.com/ryanwood/slither/tree/master">slither</a> was born.</p>
+
+<h2>Definitions</h2>
+
+<p>Here&#8217;s a simple example. Assume you have the following file format:</p>
+
+
+
+
+
+<table id="def">
+<tr><th>Position</th><th>Lenth</th><th>Field</th><th>Align</th></tr>
+<tr><td>0</td><td>8</td><td>Date</td><td>-</td></tr>
+<tr><td>8</td><td>4</td><td>Year</td><td>-</td></tr>
+<tr><td>12</td><td>20</td><td>Make</td><td>left</td></tr>
+<tr><td>32</td><td>20</td><td>Model</td><td>left</td></tr>
+<tr><td>52</td><td>10</td><td>Name</td><td>left</td></tr>
+<tr><td>62</td><td>6</td><td>Price</td><td>right</td></tr>
+</table>
+
+
+<p>Here&#8217;s a sample file (cars.txt).</p>
+
+<pre><code>200606011999BMW                 325                Smith      45500
+200506011993Honda               Accord             Wood        7500
+200601022006Lexus               350                Johnson    25365
+</code></pre>
+
+<p>Given this file, we would first need to create a slither definition.</p>
+
+<pre><code>Slither.define :cars do |d|
+  d.section, :body do |body|
+    # The trap is not very useful here since there is only one section
+    body.trap { |line| line =~ /^\d{8}/ }
+    body.column :date, 8
+    body.column :year, 4
+    body.column :make, 20, :align =&gt; :left
+    body.column :model, 20, :align =&gt; :left
+    body.column :name, 10, :align =&gt; :left
+    body.column :price, 6
+  end
+end
+</code></pre>
+
+<h2>Parsing</h2>
+
+<p>From there we could parse the above file like this:</p>
+
+<pre><code># Arguments are the file path and the definition name
+parsed_data = Slither.parse('cars.txt', :cars).inspect
+</code></pre>
+
+<p>It should return a hash with nested arrays keyed by section.</p>
+
+<pre><code>result = {
+  :body =&gt; [
+    { :date =&gt; '20060601', 
+      :year =&gt; '1999', 
+      :make =&gt; 'BWW', 
+      :model =&gt; '325', 
+      :name =&gt; 'Smith', 
+      :price =&gt; '45500' },
+    ...
+  ]
+}
+</code></pre>
+
+<h2>Generating</h2>
+
+<p>To generate a file, simply do the opposite. Create a properly formatted hash and call generate:</p>
+
+<pre><code># Generates the file as a string
+puts Slither.generate(:cars, my_car_hash)
+
+# Writes the file
+Slither.write('cars.txt', :cars, my_car_hash)
+</code></pre>
+
+<h2>Just the Beginning</h2>
+
+<p>There are many more things that Slither can do:</p>
+
+<ul>
+<li>headers and footers</li>
+<li>templated sections</li>
+<li>typecasting</li>
+<li>formatting</li>
+<li>validation (not quite there yet)</li>
+</ul>
+
+
+<p>So go ahead and install the gem or <a href="http://github.com/ryanwood/slither/tree/master">fork the Github project</a> if you&#8217;re interested in hacking.</p>
+
+<pre><code># Run the following if you haven't already:
+gem sources -a http://gems.github.com
+# Install the gem(s):
+sudo gem install ryanwood-slither
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Whenever: Cron...The Ruby Way]]></title>
+    <link href="http://ryanwood.github.com/past/2009/06/11/whenever-cron-the-ruby-way/"/>
+    <updated>2009-06-11T05:16:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/06/11/whenever-cron-the-ruby-way</id>
+    <content type="html"><![CDATA[<p>Many Rails app need to make use of cron in some form or fashion. <a href="http://github.com/javan/whenever/tree/master">Whenever</a> is a great little DSL for creating, organizing, managing, and deploying your app related cron jobs.</p>
+
+<p>Here&#8217;s an example from the <a href="http://wiki.github.com/javan/whenever/instructions-and-examples">wiki</a>. You simply install the gem and run <code>wheneverize</code> in your root dir. Then add the following to your <code>config/schedule.rb</code> file:</p>
+
+<pre><code>set :path, '/var/www/apps/my_app' 
+
+every 10.minutes do
+  runner "MyModel.some_process" 
+  rake "my:rake:task"  
+  command "/usr/bin/my_great_command" 
+end
+</code></pre>
+
+<p>will yield&#8230;</p>
+
+<pre><code>0,10,20,30,40,50 * * * * /var/www/apps/my_app/script/runner -e production "MyModel.some_process" 
+
+0,10,20,30,40,50 * * * * cd /var/www/apps/my_app &amp;&amp; RAILS_ENV=production /usr/bin/env rake my:rake:task
+
+0,10,20,30,40,50 * * * * /usr/bin/my_great_command
+</code></pre>
+
+<p>For more on setup and deployment, see the <a href="http://github.com/javan/whenever/tree/master">README</a>. RubyInside has a <a href="http://www.rubyinside.com/whenever-a-ruby-dsl-for-defining-cron-jobs-1835.html">nice review</a> as well.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git Cherry To The Rescue]]></title>
+    <link href="http://ryanwood.github.com/past/2009/06/05/git-cherry-to-the-rescue/"/>
+    <updated>2009-06-05T06:02:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/06/05/git-cherry-to-the-rescue</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve been trying to find a simple way to find out the commit differences in two git branches for while now. I resorted to using <code>git show-branch</code> which works pretty well, but can get cumbersome when you have a lot of branches. I just discovered <a href="http://kernel.org/pub/software/scm/git/docs/git-cherry.html"><code>git cherry</code></a> is just want I&#8217;ve been looking for.</p>
+
+<p>This will show the commit differences between my-dev-branch and master.</p>
+
+<pre><code>$ git checkout my-dev-branch
+$ git cherry -v master
++ cf9221200cb9574e3cc92fa72570f9813b86af24 Moved configuration out of lib folder
++ 32c456574cb58a2a8c9b354b5eca56b6f28bab82 Fixed some bugs
+</code></pre>
+
+<p>I guess It pays to start digging deeper into the underlying git commands.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac Update Spring 2009 Bundle]]></title>
+    <link href="http://ryanwood.github.com/past/2009/05/29/macupdate-spring-2009-bundle/"/>
+    <updated>2009-05-29T06:00:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/05/29/macupdate-spring-2009-bundle</id>
+    <content type="html"><![CDATA[<p>For you mac users, check out the <a href="http://www.mupromo.com/">MacUpdate Spring Bundle</a>. It&#8217;s similar to the rockin&#8217; <a href="http://www.macheist.com/">MacHeist Bundle</a> that was offered a month or so ago. For $49 you get 11+ great apps including <a href="http://www.parallels.com/">Parallels</a> and <a href="http://www.micromat.com/index.php?option=com_content&amp;task=view&amp;id=202&amp;Itemid=107">TechTool Pro</a>. Sold.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git   Making The Switch]]></title>
+    <link href="http://ryanwood.github.com/past/2009/05/28/git-making-the-switch/"/>
+    <updated>2009-05-28T02:54:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/05/28/git-making-the-switch</id>
+    <content type="html"><![CDATA[<p>I am using <a href="http://git-scm.com/">git</a> for all new projects. For the active ones that are still on <a href="http://subversion.tigris.org/">subversion</a> I&#8217;m using <a href="http://www.kernel.org/pub/software/scm/git-core/docs/git-svn.html">git-svn</a>. It is true&#8211; git-svn is a <a href="http://www.robbyonrails.com/articles/2008/04/10/git-svn-is-a-gateway-drug">gateway drug</a>. While git provides a number of <a href="http://whygitisbetterthanx.com/#svn">advantages over subversion</a>, there are a number of hurdles to overcome if you decide to switch.</p>
+
+<h2>Command Line</h2>
+
+<p>One of the toughest areas, is getting comfortable with the command line. Most of the subversion users I know rarely, if ever, use the <code>svn</code> command line utility. The simply stick with a nice GUI client. When learning git I would argue that you <em>need</em> to learn the command line. If you don&#8217;t understand what is going on under the covers, you can really end up in a ditch. The <a href="http://git-scm.com/documentation">documentation</a> is pretty good, but unless you are a command line junkie, it will take some time to move your version control mindset over.</p>
+
+<p>And make sure you keep your install current. There has been <a href="http://jasonrudolph.com/blog/2009/05/27/git-up-10-reasons-to-upgrade-your-old-git-installation/">lots of good stuff</a> added in recent days.</p>
+
+<h2>It Takes Thought</h2>
+
+<p>The power of git comes at the price of understanding. Version control becomes more than a simple &#8220;right-click and commit every once in a while&#8221; endeavor. Git allows you to craft your commits so your repository is clean and tells a story of how your app developed. Using rebase you can rewrite, combine, remove and edit commits. It crazy and dangerous and comes with significant responsibility, but the price is worth it. <a href="http://blog.madism.org/index.php/2007/09/09/138-git-awsome-ness-git-rebase-interactive-?cos=1">Check this out</a>.</p>
+
+<h2>Confidence</h2>
+
+<p>The biggest hurdle for me was gaining confidence that I could be productive and wasn&#8217;t going to destroy my applications inadvertently. The resources available are getting <a href="http://git-scm.com/">better</a> and <a href="http://www.gitcasts.com/">better</a> and <a href="http://gitready.com/">better</a>. However, confidence only comes with experience. It doesn&#8217;t matter how many books you read on dating, at some point, you have to walk up to that personal and ask them out. Confidence requires action. Luckily, git won&#8217;t throw a drink in your face or laugh at you.</p>
+
+<p>If you&#8217;re on a steady diet of svn, <a href="http://git.or.cz/course/svn.html">compare</a> and give git a try. You know you want to.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Googling Myself]]></title>
+    <link href="http://ryanwood.github.com/past/2009/05/27/googling-myself/"/>
+    <updated>2009-05-27T15:23:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/05/27/googling-myself</id>
+    <content type="html"><![CDATA[<p>For some reason I googled myself tonight. Of interest, I found that I am:</p>
+
+<ul>
+<li><a href="http://wiki.answers.com/Q/How_did_Ryan_Wood_bay_area_rapper_known_as_Woodie_die">a rapper</a></li>
+<li><a href="http://woodyart.blogspot.com/">an artist</a></li>
+<li><a href="http://www.deadtroll.com/video/pitchingmother.html">a film maker</a></li>
+<li><a href="http://www.modelmayhem.com/162883">a model</a></li>
+<li><a href="http://www.goduke.com/ViewArticle.dbml?DB_OEM_ID=4200&amp;ATCLID=157382">a wide receiver</a></li>
+<li><a href="http://www.hockeydb.com/ihdb/stats/pdisplay.php?pid=30565">a left wing</a></li>
+<li><a href="http://lawyers.law.cornell.edu/lawyer/ryan-wood-1481538">a lawyer</a></li>
+<li><a href="http://www.healthgrades.com/directory_search/physician/profiles/dr-md-reports/Dr-Ryan-Wood-DO-461F1C8B.cfm">a doctor</a></li>
+<li><a href="http://www.youtube.com/watch?v=y0dBZQE7lNQ">a guitarist</a></li>
+<li><a href="http://ryanwoodconsulting.com/">a consultant</a></li>
+<li><a href="http://www.ryanandwood.com/">a distillery</a></li>
+<li><a href="http://ryanwoodbaptist.org/">a church</a></li>
+</ul>
+
+
+<p>My parents should be proud!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Ruby Toolbox]]></title>
+    <link href="http://ryanwood.github.com/past/2009/05/27/the-ruby-toolbox/"/>
+    <updated>2009-05-27T04:06:00-04:00</updated>
+    <id>http://ryanwood.github.com/past/2009/05/27/the-ruby-toolbox</id>
+    <content type="html"><![CDATA[<p>Speaking of gems, <a href="http://www.rubyinside.com">Ruby Inside</a> has a <a href="http://www.rubyinside.com/the-ruby-toolbox-see-the-most-popular-ruby-libraries-by-usage-1776.html">great post</a> on the <a href="http://ruby-toolbox.com/">Ruby ToolBox</a>.</p>
+
+<blockquote><p>&#8220;The Ruby Toolbox gives Ruby developers a categorized overview of 100 or so different libraries ranked on how commonly used they are. It&#8217;s not perfect as it only pays attention to projects hosted on Github and the ranking system is based on the number of watchers and forks they have, but it&#8217;s enough to give you a basic overview of the activity within a certain area.&#8221;</p></blockquote>
+
+<p>It&#8217;s a really nice resource to look at when trying to pick a plugin for a particular task when there are just too many to choose from. <a href="http://gems.rubyforge.org/stats.html">RubyForge has stats</a> as well.</p>
+
+<p><img src="http://ruby-toolbox.com/images/Toolbox_Red-256x256.png" alt="Toolbox" /></p>
 ]]></content>
   </entry>
   

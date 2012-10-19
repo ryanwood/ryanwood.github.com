@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Git Workflow: Merge Or Rebase - knock.on_wood</title>
+  <meta name="author" content="Ryan Wood">
+
+  
+  <meta name="description" content="One of the things that I&#8217;m passionate about is the development process. So much of the battle is won or lost by the type of development process &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ryanwood.github.com/past/2010/03/14/git-workflow-merge-or-rebase/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="knock.on_wood" type="application/atom+xml">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <div id="logo">
+  	<div id="logoLeft">{</div>
+  	<div id="logoText"></div>
+  	<div id="logoRight">}</div>
+  	<div class="clear"></div>
+  </div>
+  <h1><a href="/">knock.on_wood</a></h1>
+  
+    <h2>Unclear thoughts on Software Development</h2>
+  
+  <div class="clear"></div>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ryanwood.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      
+        <h1 class="entry-title">Git Workflow: Merge or Rebase</h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-14T08:09:00-04:00" pubdate data-updated="true">Mar 14<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>One of the things that I&#8217;m passionate about is the development process. So much of the battle is won or lost by the type of development process you have. Leaning on a <a href="http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html">couple</a> <a href="http://nvie.com/archives/323">smart</a> guys, I&#8217;ve established a very clean workflow in git. If you haven&#8217;t read these posts, please do so before continuing. Both are excellent and will help clarify my question.</p>
+
+<p>The only discrepancy between them is how to handle feature branches. Should you interactively rebase (<code>git rebase -i</code>) your feature branch to one commit (or possibly a couple)?  <a href="http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html">Rein</a> takes this approach. <a href="http://nvie.com/archives/323">Vincent</a> on the other hand prefers to leave the feature branch intact and do a non-fast forward  merge (<code>git merge --no-ff feature</code>) to merge the feature back into the develop branch.</p>
+
+<p>I&#8217;ve tried it both ways. Neither is right or wrong and both have their advantages.</p>
+
+<p>Both go into the develop branch as a single commit, one as a normal commit and one as a merge commit. With the interactive rebase, you lose the granular commit history and potentially have a significantly larger commit. But you have a clear comment (with summary bullets if you follow Rein&#8217;s suggestion) as to what the commit it.</p>
+
+<p>With a forced merge commit, you maintain the feature branch history which is nice to track down where some error entered the code, but the merge commit is auto-commented with something like &#8217;<code>Merge branch 'feature-x'</code>&#8217;. It&#8217;s less clear when looking down the commit list of develop what is represented. Another downside of this approach is that you create a lot of unnecessary merge commits in the tree.</p>
+
+<p>At this point, I think I lean more toward the interactive rebase over the merge, but I&#8217;m still not thoroughly convince. Have an opinion, please let me know in the comments.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Ryan Wood</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-14T08:09:00-04:00" pubdate data-updated="true">Mar 14<span>th</span>, 2010</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ryanwood.github.com/past/2010/03/14/git-workflow-merge-or-rebase/" data-via="ryanwood" data-counturl="http://ryanwood.github.com/past/2010/03/14/git-workflow-merge-or-rebase/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left articlenav" href="/past/2010/03/01/webbynode-review/" title="Previous Post: Webbynode Review">&laquo; Webbynode Review</a>
+      
+      
+        <a class="basic-alignment right articlenav" href="/past/2010/09/29/when-will-this-project-be-done/" title="Next Post: When Will This Project Be Done?">When Will This Project Be Done? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/past/2010/11/29/cowork-the-first-month/">Co Work: The First Month</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/09/29/when-will-this-project-be-done/">When Will This Project Be Done?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/03/14/git-workflow-merge-or-rebase/">Git Workflow: Merge Or Rebase</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/03/01/webbynode-review/">Webbynode Review</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/01/21/fat-free-crm-on-heroku/">Fat Free Crm On Heroku</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/ryanwood">@ryanwood</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ryanwood',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("ryanwood", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/ryanwood" class="twitter-follow-button" data-show-count="false">Follow @ryanwood</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/ryan.wood?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Ryan Wood -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ryanwood';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ryanwood.github.com/past/2010/03/14/git-workflow-merge-or-rebase/';
+        var disqus_url = 'http://ryanwood.github.com/past/2010/03/14/git-workflow-merge-or-rebase/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>knock.on_wood</title>
+  <meta name="author" content="Ryan Wood">
+
+  
+  <meta name="description" content="Recently, I have been exploring Refinery, a relatively new Rails-based CMS. So far I&#8217;ve been very impressed. One of the sites I been &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ryanwood.github.com/blog/page/2/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="knock.on_wood" type="application/atom+xml">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <div id="logo">
+  	<div id="logoLeft">{</div>
+  	<div id="logoText"></div>
+  	<div id="logoRight">}</div>
+  	<div class="clear"></div>
+  </div>
+  <h1><a href="/">knock.on_wood</a></h1>
+  
+    <h2>Unclear thoughts on Software Development</h2>
+  
+  <div class="clear"></div>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ryanwood.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/09/18/deploying-refinery-on-heroku/">Deploying Refinery on Heroku</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-18T09:50:00-04:00" pubdate data-updated="true">Sep 18<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently, I have been exploring <a href="http://refinerycms.com/">Refinery</a>, a relatively new Rails-based CMS. So far I&#8217;ve been very impressed. One of the sites I been implementing in Refinery will be deployed to <a href="http://heroku.com/">Heroku</a> which has <a href="http://docs.heroku.com/constraints">some constraints</a> which cause the out-of-the-box version of Refinery to fail. Here&#8217;s how to get it working if you&#8217;re interested.</p>
+
+<p><em>Updated [9/19/2009]: After corresponding with <a href="http://www.d-jones.com/">David</a> at <a href="http://resolvedigital.co.nz/">Resolve Digital</a>, I added step 2 and corrected a couple of file references. Thanks for the input David.</em></p>
+
+<h2>Prerequiste</h2>
+
+<p>You will to have or create an new account with <a href="http://aws.amazonaws.com/s3">Amazon S3</a> or another third party storage solution supported by <a href="http://github.com/technoweenie/attachment_fu">attachment_fu</a>.</p>
+
+<h2>Step 1: Config your buckets</h2>
+
+<p>You will need to update your <code>config/amazon_s3.yml</code> file to include you bucket name, access key, and secret key.</p>
+
+<pre><code>development:
+  bucket_name: myapp-development
+  access_key_id: XXXX
+  secret_access_key: XXXX
+  distribution_domain: XXXX.cloudfront.net
+
+... same for test and production
+</code></pre>
+
+<p><em>Note: You will need to create this bucket before you can use it. I used <a href="http://cyberduck.ch/">CyberDuck</a> on the mac to connect S3 and create the initial buckets. Check out the bottom of  <a href="http://www.hongkiat.com/blog/amazon-s3-the-beginners-guide/">this post</a> for some alternatives.</em></p>
+
+<h2>Step 2: Override the files we will be updating so they don&#8217;t conflict when Refinery is updated</h2>
+
+<p>This is the &#8220;approved&#8221; approach to take if you are changing elements of Refinery. Simply override the particular file in <code>app</code> directory and your Rails app will load it instead of the Refinery equivalent in the plugins directory. Let&#8217;s override the models we need to update&#8230;</p>
+
+<pre><code>mkdir -p app/models
+cp vendor/plugins/images/app/models/image.rb app/models
+cp vendor/plugins/inquiries/app/models/inquiry.rb app/models
+cp vendor/plugins/news/app/models/news_item.rb app/models
+cp vendor/plugins/pages/app/models/page.rb app/models
+cp vendor/plugins/resources/app/models/resource.rb app/models
+</code></pre>
+
+<h2>Step 3: Override Images and Resources to use S3</h2>
+
+<p>In <code>app/models/image.rb</code>, you will need change the options for has_attachment:</p>
+
+<pre><code># From this...
+has_attachment :content_type =&gt; :image, 
+               :storage =&gt; :file_system,
+               :path_prefix =&gt; 'public/images/system',
+               :processor =&gt; 'Rmagick', 
+               ...
+
+# To this...
+has_attachment :content_type =&gt; :image,
+               :storage =&gt; :s3,
+               :processor =&gt; 'Rmagick',
+               ...
+</code></pre>
+
+<p>And in <code>app/models/resource.rb</code>:</p>
+
+<pre><code># From this...
+has_attachment :storage =&gt; :file_system,
+       :size =&gt; 0.kilobytes..50.megabytes,
+       :path_prefix =&gt; 'public/system/resources'
+
+# To this
+has_attachment :storage =&gt; :s3
+       :size =&gt; 0.kilobytes..50.megabytes #,
+</code></pre>
+
+<p>This should now send uploads to S3.</p>
+
+<h2>Step 4: Update search index location</h2>
+
+<p>We now need to update the options hash for <a href="http://douglasfshearer.com/blog/rails-plugin-acts_as_indexed">acts_as_indexed</a> in each of the models that we overwrote in step 1. You will need to add the following key pair to the hash:</p>
+
+<pre><code>:index_file =&gt; [RAILS_ROOT,'tmp','index']
+</code></pre>
+
+<p>For example, in <code>app/models/image.rb</code></p>
+
+<pre><code>acts_as_indexed :fields =&gt; [:title]
+# becomes
+acts_as_indexed :fields =&gt; [:title], :index_file =&gt; [RAILS_ROOT,'tmp','index']
+</code></pre>
+
+<p>Make sure you find each instance where acts_as_indexed is used. It would be nice if you could just update a global setting that would override the default, but as of this writing, you have to do it on each model.</p>
+
+<h2>Step 5: Create a .gems file</h2>
+
+<p>Heroku requires a <code>.gems</code> file for it to install the required gems on their servers. Create <code>.gems</code> in the root directory with the following content.</p>
+
+<pre><code>unicode
+# Add any other gems you require here
+</code></pre>
+
+<h2>Step 6: Deploy</h2>
+
+<p>Now comes the easy part&#8230;</p>
+
+<pre><code>git push heroku master
+</code></pre>
+
+<p>Tada &#8230; you&#8217;re live on Heroku.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/07/07/hamlsass-22-is-out/">Haml/Sass 2.2 Is Out</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-07T05:28:00-04:00" pubdate data-updated="true">Jul 7<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Anyone who knows me knows that I&#8217;m a big fan of Haml and Sass. They simplify and clean up so much HTML-related code. The new version promises some <a href="http://nex-3.com/posts/84-haml-sass-2-2-released">nice new features</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/06/20/improving-by-gits-and-bounds/">Improving by Gits and Bounds</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-20T08:23:00-04:00" pubdate data-updated="true">Jun 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Subversion (SVN) has been a staple of my development process since I ran kicking and screaming out of the Visual SourceSafe (VSS) dungeon many years old. It has served me very well. I used the basic edit-commit-merge life-cycle and all was good. Here’s the strange thing.</p>
+
+<p><strong>I didn’t really learn how to use subversion specifically, or really version control in general, until I quit using subversion and started using git.</strong></p>
+
+<p>The evolution started with VSS. Essentially it was a code backup. We did the occasionally file rollback, but that was it. Write code and periodically check it in, comment-less of course. I had a brief affair with SourceGear Vault. It was a much improved replacement for VSS.  Though it fixed a lot of the bugs and other issues in VSS, but as I move more away from the Microsoft world, it became less useful.</p>
+
+<p>Enter subversion.</p>
+
+<p>What a breath of fresh air. Edit-merge-commit. Open source. Quicker. Concurrent development. Nice. Then I started learning about branches and tags. Wow, those could be useful. “Could” being the important word. Using branches and merging in SVN is certainly possible, but trivial. So I used them occasionally, but never with confidence or as any core part of my development process.</p>
+
+<p>Then the cool kids started chanting “git, git, git”.</p>
+
+<p>So I checked out what all the fuss was about like any good hopelessly addicted to new technology freak would do. Git was hard and a bit scary. Yeah, the whole “clone, add, commit” thing was fine, but start talking about rebasing and my head hurt. Git 101 tutorials will only take you so far and the rest you have to learn in the trenches.</p>
+
+<p>I’m a few months out now and I wouldn’t go back. Oh wait. I have to. I still have a slew of projects in SVN. As I go back to those projects, I’m using SVN in ways I never would have previously.</p>
+
+<p>Yesterday I had a bug to fix in a production app on Rails 2.0.1. It has been running without issue for over a year. So I go into my dev machine to make a quick fix and realize that I started to upgrade the app to 2.1.0 about 6 months ago. I have 6 or so commits but never deployed any of the changes. I can’t deploy them because they were never finished. mmmm.</p>
+
+<p>Before git, I’d probably just make the changes on the server and back the code into the trunk. Gong. Being much more comfortable with branching and merging from working with git, I simply created a stable-1.0 branch off of the revision that was last deployed, applied the changes there. A quick update to my deploy.rb file pull from the branch rather than trunk and then<code>cap deploy</code>. Done.</p>
+
+<p>My point of this ramble is that choosing to work with new (different) technologies matures you as a developer. And the things you learn will give you a new, and generally better, perspective even when you work within your wheelhouse.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/06/12/slither-a-dsl-for-parsing-fixed-width-text-files/">Slither: A Dsl for Parsing Fixed Width Text Files</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-12T12:54:00-04:00" pubdate data-updated="true">Jun 12<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Given the rage over XML and web services over the past decade or so, I was shocked at how common it is to still exchange data using a fixed-width file format over FTP. I guess it&#8217;s all about those mainframes and backward compatibility, but &#8220;WOW&#8221;.</p>
+
+<p>At <a href="http://firstdata.com">work</a> I have had numerous projects (mostly in Ruby) that involve creating and/or reading these fixed-width text files. Occasionally, I have the luxury of a CSV file and can use <a href="http://fastercsv.rubyforge.org/">FasterCSV</a> to take care of business. To date, I haven&#8217;t had a single project that used XML.</p>
+
+<p>Given the need, I decided to create an open source project. I had to work on it primarily on my own time, as our work environment is not what you would call &#8220;open source friendly&#8221;. So, <a href="http://github.com/ryanwood/slither/tree/master">slither</a> was born.</p>
+
+<h2>Definitions</h2>
+
+<p>Here&#8217;s a simple example. Assume you have the following file format:</p>
+
+
+
+
+
+<table id="def">
+<tr><th>Position</th><th>Lenth</th><th>Field</th><th>Align</th></tr>
+<tr><td>0</td><td>8</td><td>Date</td><td>-</td></tr>
+<tr><td>8</td><td>4</td><td>Year</td><td>-</td></tr>
+<tr><td>12</td><td>20</td><td>Make</td><td>left</td></tr>
+<tr><td>32</td><td>20</td><td>Model</td><td>left</td></tr>
+<tr><td>52</td><td>10</td><td>Name</td><td>left</td></tr>
+<tr><td>62</td><td>6</td><td>Price</td><td>right</td></tr>
+</table>
+
+
+<p>Here&#8217;s a sample file (cars.txt).</p>
+
+<pre><code>200606011999BMW                 325                Smith      45500
+200506011993Honda               Accord             Wood        7500
+200601022006Lexus               350                Johnson    25365
+</code></pre>
+
+<p>Given this file, we would first need to create a slither definition.</p>
+
+<pre><code>Slither.define :cars do |d|
+  d.section, :body do |body|
+    # The trap is not very useful here since there is only one section
+    body.trap { |line| line =~ /^\d{8}/ }
+    body.column :date, 8
+    body.column :year, 4
+    body.column :make, 20, :align =&gt; :left
+    body.column :model, 20, :align =&gt; :left
+    body.column :name, 10, :align =&gt; :left
+    body.column :price, 6
+  end
+end
+</code></pre>
+
+<h2>Parsing</h2>
+
+<p>From there we could parse the above file like this:</p>
+
+<pre><code># Arguments are the file path and the definition name
+parsed_data = Slither.parse('cars.txt', :cars).inspect
+</code></pre>
+
+<p>It should return a hash with nested arrays keyed by section.</p>
+
+<pre><code>result = {
+  :body =&gt; [
+    { :date =&gt; '20060601', 
+      :year =&gt; '1999', 
+      :make =&gt; 'BWW', 
+      :model =&gt; '325', 
+      :name =&gt; 'Smith', 
+      :price =&gt; '45500' },
+    ...
+  ]
+}
+</code></pre>
+
+<h2>Generating</h2>
+
+<p>To generate a file, simply do the opposite. Create a properly formatted hash and call generate:</p>
+
+<pre><code># Generates the file as a string
+puts Slither.generate(:cars, my_car_hash)
+
+# Writes the file
+Slither.write('cars.txt', :cars, my_car_hash)
+</code></pre>
+
+<h2>Just the Beginning</h2>
+
+<p>There are many more things that Slither can do:</p>
+
+<ul>
+<li>headers and footers</li>
+<li>templated sections</li>
+<li>typecasting</li>
+<li>formatting</li>
+<li>validation (not quite there yet)</li>
+</ul>
+
+
+<p>So go ahead and install the gem or <a href="http://github.com/ryanwood/slither/tree/master">fork the Github project</a> if you&#8217;re interested in hacking.</p>
+
+<pre><code># Run the following if you haven't already:
+gem sources -a http://gems.github.com
+# Install the gem(s):
+sudo gem install ryanwood-slither
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/06/11/whenever-cron-the-ruby-way/">Whenever: Cron&#8230;The Ruby Way</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-11T05:16:00-04:00" pubdate data-updated="true">Jun 11<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Many Rails app need to make use of cron in some form or fashion. <a href="http://github.com/javan/whenever/tree/master">Whenever</a> is a great little DSL for creating, organizing, managing, and deploying your app related cron jobs.</p>
+
+<p>Here&#8217;s an example from the <a href="http://wiki.github.com/javan/whenever/instructions-and-examples">wiki</a>. You simply install the gem and run <code>wheneverize</code> in your root dir. Then add the following to your <code>config/schedule.rb</code> file:</p>
+
+<pre><code>set :path, '/var/www/apps/my_app' 
+
+every 10.minutes do
+  runner "MyModel.some_process" 
+  rake "my:rake:task"  
+  command "/usr/bin/my_great_command" 
+end
+</code></pre>
+
+<p>will yield&#8230;</p>
+
+<pre><code>0,10,20,30,40,50 * * * * /var/www/apps/my_app/script/runner -e production "MyModel.some_process" 
+
+0,10,20,30,40,50 * * * * cd /var/www/apps/my_app &amp;&amp; RAILS_ENV=production /usr/bin/env rake my:rake:task
+
+0,10,20,30,40,50 * * * * /usr/bin/my_great_command
+</code></pre>
+
+<p>For more on setup and deployment, see the <a href="http://github.com/javan/whenever/tree/master">README</a>. RubyInside has a <a href="http://www.rubyinside.com/whenever-a-ruby-dsl-for-defining-cron-jobs-1835.html">nice review</a> as well.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/06/05/git-cherry-to-the-rescue/">Git Cherry to the Rescue</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-05T06:02:00-04:00" pubdate data-updated="true">Jun 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been trying to find a simple way to find out the commit differences in two git branches for while now. I resorted to using <code>git show-branch</code> which works pretty well, but can get cumbersome when you have a lot of branches. I just discovered <a href="http://kernel.org/pub/software/scm/git/docs/git-cherry.html"><code>git cherry</code></a> is just want I&#8217;ve been looking for.</p>
+
+<p>This will show the commit differences between my-dev-branch and master.</p>
+
+<pre><code>$ git checkout my-dev-branch
+$ git cherry -v master
++ cf9221200cb9574e3cc92fa72570f9813b86af24 Moved configuration out of lib folder
++ 32c456574cb58a2a8c9b354b5eca56b6f28bab82 Fixed some bugs
+</code></pre>
+
+<p>I guess It pays to start digging deeper into the underlying git commands.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/05/29/macupdate-spring-2009-bundle/">Mac Update Spring 2009 Bundle</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-29T06:00:00-04:00" pubdate data-updated="true">May 29<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For you mac users, check out the <a href="http://www.mupromo.com/">MacUpdate Spring Bundle</a>. It&#8217;s similar to the rockin&#8217; <a href="http://www.macheist.com/">MacHeist Bundle</a> that was offered a month or so ago. For $49 you get 11+ great apps including <a href="http://www.parallels.com/">Parallels</a> and <a href="http://www.micromat.com/index.php?option=com_content&amp;task=view&amp;id=202&amp;Itemid=107">TechTool Pro</a>. Sold.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/05/28/git-making-the-switch/">Git Making the Switch</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-28T02:54:00-04:00" pubdate data-updated="true">May 28<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I am using <a href="http://git-scm.com/">git</a> for all new projects. For the active ones that are still on <a href="http://subversion.tigris.org/">subversion</a> I&#8217;m using <a href="http://www.kernel.org/pub/software/scm/git-core/docs/git-svn.html">git-svn</a>. It is true&#8211; git-svn is a <a href="http://www.robbyonrails.com/articles/2008/04/10/git-svn-is-a-gateway-drug">gateway drug</a>. While git provides a number of <a href="http://whygitisbetterthanx.com/#svn">advantages over subversion</a>, there are a number of hurdles to overcome if you decide to switch.</p>
+
+<h2>Command Line</h2>
+
+<p>One of the toughest areas, is getting comfortable with the command line. Most of the subversion users I know rarely, if ever, use the <code>svn</code> command line utility. The simply stick with a nice GUI client. When learning git I would argue that you <em>need</em> to learn the command line. If you don&#8217;t understand what is going on under the covers, you can really end up in a ditch. The <a href="http://git-scm.com/documentation">documentation</a> is pretty good, but unless you are a command line junkie, it will take some time to move your version control mindset over.</p>
+
+<p>And make sure you keep your install current. There has been <a href="http://jasonrudolph.com/blog/2009/05/27/git-up-10-reasons-to-upgrade-your-old-git-installation/">lots of good stuff</a> added in recent days.</p>
+
+<h2>It Takes Thought</h2>
+
+<p>The power of git comes at the price of understanding. Version control becomes more than a simple &#8220;right-click and commit every once in a while&#8221; endeavor. Git allows you to craft your commits so your repository is clean and tells a story of how your app developed. Using rebase you can rewrite, combine, remove and edit commits. It crazy and dangerous and comes with significant responsibility, but the price is worth it. <a href="http://blog.madism.org/index.php/2007/09/09/138-git-awsome-ness-git-rebase-interactive-?cos=1">Check this out</a>.</p>
+
+<h2>Confidence</h2>
+
+<p>The biggest hurdle for me was gaining confidence that I could be productive and wasn&#8217;t going to destroy my applications inadvertently. The resources available are getting <a href="http://git-scm.com/">better</a> and <a href="http://www.gitcasts.com/">better</a> and <a href="http://gitready.com/">better</a>. However, confidence only comes with experience. It doesn&#8217;t matter how many books you read on dating, at some point, you have to walk up to that personal and ask them out. Confidence requires action. Luckily, git won&#8217;t throw a drink in your face or laugh at you.</p>
+
+<p>If you&#8217;re on a steady diet of svn, <a href="http://git.or.cz/course/svn.html">compare</a> and give git a try. You know you want to.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/05/27/googling-myself/">Googling Myself</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-27T15:23:00-04:00" pubdate data-updated="true">May 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For some reason I googled myself tonight. Of interest, I found that I am:</p>
+
+<ul>
+<li><a href="http://wiki.answers.com/Q/How_did_Ryan_Wood_bay_area_rapper_known_as_Woodie_die">a rapper</a></li>
+<li><a href="http://woodyart.blogspot.com/">an artist</a></li>
+<li><a href="http://www.deadtroll.com/video/pitchingmother.html">a film maker</a></li>
+<li><a href="http://www.modelmayhem.com/162883">a model</a></li>
+<li><a href="http://www.goduke.com/ViewArticle.dbml?DB_OEM_ID=4200&amp;ATCLID=157382">a wide receiver</a></li>
+<li><a href="http://www.hockeydb.com/ihdb/stats/pdisplay.php?pid=30565">a left wing</a></li>
+<li><a href="http://lawyers.law.cornell.edu/lawyer/ryan-wood-1481538">a lawyer</a></li>
+<li><a href="http://www.healthgrades.com/directory_search/physician/profiles/dr-md-reports/Dr-Ryan-Wood-DO-461F1C8B.cfm">a doctor</a></li>
+<li><a href="http://www.youtube.com/watch?v=y0dBZQE7lNQ">a guitarist</a></li>
+<li><a href="http://ryanwoodconsulting.com/">a consultant</a></li>
+<li><a href="http://www.ryanandwood.com/">a distillery</a></li>
+<li><a href="http://ryanwoodbaptist.org/">a church</a></li>
+</ul>
+
+
+<p>My parents should be proud!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2009/05/27/the-ruby-toolbox/">The Ruby Toolbox</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-27T04:06:00-04:00" pubdate data-updated="true">May 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Speaking of gems, <a href="http://www.rubyinside.com">Ruby Inside</a> has a <a href="http://www.rubyinside.com/the-ruby-toolbox-see-the-most-popular-ruby-libraries-by-usage-1776.html">great post</a> on the <a href="http://ruby-toolbox.com/">Ruby ToolBox</a>.</p>
+
+<blockquote><p>&#8220;The Ruby Toolbox gives Ruby developers a categorized overview of 100 or so different libraries ranked on how commonly used they are. It&#8217;s not perfect as it only pays attention to projects hosted on Github and the ranking system is based on the number of watchers and forks they have, but it&#8217;s enough to give you a basic overview of the activity within a certain area.&#8221;</p></blockquote>
+
+<p>It&#8217;s a really nice resource to look at when trying to pick a plugin for a particular task when there are just too many to choose from. <a href="http://gems.rubyforge.org/stats.html">RubyForge has stats</a> as well.</p>
+
+<p><img src="http://ruby-toolbox.com/images/Toolbox_Red-256x256.png" alt="Toolbox" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/past/2010/11/29/cowork-the-first-month/">Co Work: The First Month</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/09/29/when-will-this-project-be-done/">When Will This Project Be Done?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/03/14/git-workflow-merge-or-rebase/">Git Workflow: Merge Or Rebase</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/03/01/webbynode-review/">Webbynode Review</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/01/21/fat-free-crm-on-heroku/">Fat Free Crm On Heroku</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/ryanwood">@ryanwood</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ryanwood',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("ryanwood", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/ryanwood" class="twitter-follow-button" data-show-count="false">Follow @ryanwood</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/ryan.wood?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Ryan Wood -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ryanwood';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>knock.on_wood</title>
+  <meta name="author" content="Ryan Wood">
+
+  
+  <meta name="description" content="Wow. Google Commissions Ten Ruby Libs Here are the projects
+">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ryanwood.github.com/blog/page/6/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="knock.on_wood" type="application/atom+xml">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <div id="logo">
+  	<div id="logoLeft">{</div>
+  	<div id="logoText"></div>
+  	<div id="logoRight">}</div>
+  	<div class="clear"></div>
+  </div>
+  <h1><a href="/">knock.on_wood</a></h1>
+  
+    <h2>Unclear thoughts on Software Development</h2>
+  
+  <div class="clear"></div>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ryanwood.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2006/05/30/google-does-ruby/">Google Does Ruby</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-30T10:35:00-04:00" pubdate data-updated="true">May 30<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Wow. <a href="http://redhanded.hobix.com/cult/googleCommissionsTenRubyLibs.html.">Google Commissions Ten Ruby Libs</a> Here are <a href="http://code.google.com/soc/ruby/about.html.">the projects</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2006/05/30/stored-procedures-2-0/">Stored Procedures 2.0?</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-30T06:19:00-04:00" pubdate data-updated="true">May 30<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Coming from a Microsoft platform background, I&#8217;m well versed in the stored procedure mantra, which practically equates to &#8220;use them everywhere&#8221;. Over the past year or so, I&#8217;ve starting <a href="http://codebetter.com/blogs/jeremy.miller/archive/2006/05/25/145450.aspx.">questioning that assumption</a> While stored procs are useful, they do more to add unneccessary complexity to application development.</p>
+
+<p><a href="http://www.codinghorror.com/blog">Jeff Atwood</a> offers up a compelling (yet slightly dated) argument for reducing the scope of stored procs in his post <a href="http://www.codinghorror.com/blog/archives/000117.html">Who needs Stored Procedures, anyways?</a></p>
+
+<p>bq. For modern databases and real world usage scenarios, I believe a Stored Procedure architecture has serious downsides and little practical benefit. <em>Stored Procedures should be considered database assembly language: for use in only the most performance critical situations.</em> There are plenty of ways to design a solid, high performing data access layer without resorting to Stored Procedures; you&#8217;ll realize a lot of benefits if you stick with parameterized SQL and a single coherent development environment.</p>
+
+<p>I now longer use stored procs when working with  an <a href="http://martinfowler.com/bliki/ApplicationDatabase.html.">application database</a> They become much more useful when dealing with an <a href="http://martinfowler.com/bliki/IntegrationDatabase.html.">integration database</a> <a href="http://www.martinfowler.com/">Martin Fowler</a> captures the [differences](http://martinfowler.com/bliki/DatabaseStyles.html.</p>
+
+<p>The) real question to ask is, &#8220;Where am I spending my time?&#8221;. Am I doing application development where I can <a href="http://codebetter.com/blogs/jeremy.miller/archive/2005/06/09/129562.aspx">encapsulate my business logic</a> into a single application layer? Or am I working with a database that multiple application must interact with where a clear business layer nearly impossible to maintain?</p>
+
+<p>Though I still have a foot in both worlds, I have gravitated over the past few years toward much more application development. I simply enjoy it more. Hence, I find myself using stored procs less and less.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2006/05/20/cork-d/">Cork&#8217;d</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-20T07:35:00-04:00" pubdate data-updated="true">May 20<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Sometimes, well almost all the time, I really wish I had better design skills. <a href="http://www.simplebits.com">Dan Cederholm</a> and <a href="http://www.hivelogic.com">Dan Benjamin</a> put together a great (and nicely designed) site for wine aficionados called <a href="http://www.corkd.com.">Cork&#8217;d</a> Looks like lot of fun.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2006/05/16/saving-css-background-images/">Saving Css Background Images</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-16T07:12:00-04:00" pubdate data-updated="true">May 16<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The good &#8216;ole <code>Save Page As</code> drops the ball when trying to grab well-formed, standards based websites where most, if not all, of the images are specified in CSS. I spent an hour or so yesterday scouring the web for some tool that would download these CSS images. I found nothing.</p>
+
+<p>I went back to the tried and true Web Developer toolbar extension for FireFox and found the <em>View Image Information</em> option (under the Images button).</p>
+
+<p>It interrogates the CSS file creates a very nice list of all inline and CSS images. You still have to right click and save them individually, but it definitely helps.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2006/05/15/the-windows-world/">The Windows World</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-15T08:06:00-04:00" pubdate data-updated="true">May 15<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I can get frustrating working in the MS world especially after falling in love with <a href="http://www.rubyonrails.com.">RoR</a> Nevertheless, reality is reality &#8211; at least for now. So here are a couple gems for those of us trapped behind the window.</p>
+
+<p>Brian Hogan offers some great write-ups on [Deployment Strategies for Rails on Windows servers](http://www.napcs.com/howto/rails/deploy/.</p>
+
+<p>A) fellow .NET guy also send me a pretty interesting <a href="http://www.sapphiresteel.com/static/pages/software/steel_features.html.">Visual Studio Plug-in for Ruby</a> Thanks Jason.</p>
+
+<p>What&#8217;s next?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2006/05/15/interview-that-opportunity/">Interview That Opportunity</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-15T07:50:00-04:00" pubdate data-updated="true">May 15<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.halhelms.com">Hal</a> and <a href="http://www.grokfusebox.com">Jeff</a> offered up some great <a href="http://www.helmsandpeters.com/audiofiles/HAPOL-22-TheInterview.mp3">interviewing questions</a> on their podcast, <a href="http://www.helmsandpeters.com.">Out Loud</a> I wanted the jot these down for posterity and future reference. I hope they can help you land that perfect job. (I&#8217;m still working on that one. ; )</p>
+
+<p>h3. Ten Questions from the Interviewee</p>
+
+<p><em>Obviously these are beyond the normal (salary, benefits, etc.)</em></p>
+
+<h1>What do you consider to be the company&#8217;s greatest draw for developers? <em>Why would they chose this company over another?</em></h1>
+
+<p> <em>What do developers like about the company?</em></p>
+
+<h1>Are there any standards frameworks, or methodologies that all developers adopt?</h1>
+
+<h1>What traits do you think are most useful to successful developers at this company? (i.e. curiosity, flexibility, productivity, intelligence, teamwork, etc.)</h1>
+
+<h1>Do developers here work primarily in teams or by themselves?</h1>
+
+<h1>What are the short-term and long-term goals of the the company (specifically as it applies to development). <em>Does the manager have any idea?</em></h1>
+
+<h1>Employees are often unaware of the daily frustrations of managers. What are a few things that you wish developers were more aware of?</h1>
+
+<h1>How do developers discover the requirements for a project? (Interaction with customer, <a href="http://www.fusebox.org/index.cfm?fuseaction=fusebox.overviewFLiP,">FLIP</a> water cooler, etc.)</h1>
+
+<h1>How do you know when a project is done? <em>How do you establish accceptance?</em></h1>
+
+<h1>What is the company&#8217;s policy on doing work remotely?</h1>
+
+<h1>What policies does the company have to help employees learn and get better? <em>Code reviews?</em></h1>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2006/05/11/drumming-prodigy/">Drumming Prodigy</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-11T05:51:00-04:00" pubdate data-updated="true">May 11<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been a drummer since 7th grade. Currently I keep my chops by playing in a band for the little guys (1-6th grade) at <a href="http://www.gracechurchsc.org.">church</a> Though it&#8217;s definitely more tame than some of the bands I&#8217;ve been in previous, it&#8217;s still a lot of fun.</p>
+
+<p>My son, James, has a fascination for the drums as most little ones do. Through a little magic on the electronic kit, his first solo comes to life&#8230;</p>
+
+<p>[Get the QuickTime movie](/assets/2006/10/17/JamesDrumming.mov</p>
+
+<p><em>Update:) I removed the embedded movie as it was slowing things down.</em> (Don&#8217;t have QuickTime? <a href="http://www.apple.com/quicktime/download.">Download it here</a></p>
+
+<p>Everything) he&#8217;s playing is real, it&#8217;s just on a setting called drum solo which creates about 10 hits for every one actual.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2006/05/03/get-a-mac/">Get a Mac</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-03T08:09:00-04:00" pubdate data-updated="true">May 3<span>rd</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Great new Mac ads. <a href="http://www.apple.com/getamac/ads/">Check them out.</a></p>
+
+<p>I&#8217;m succumbing to the pressure&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2006/04/18/upstate-sc-ruby-on-rails-user-group/">Upstate Sc Ruby on Rails User Group</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-04-18T06:26:00-04:00" pubdate data-updated="true">Apr 18<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m happy to announce that I (and a few other brave souls) will be starting a Ruby/Rails user group for the upstate of South Carolina. We are tentatively planning to meet the 2nd Tuesday of each month starting in May.</p>
+
+<p>Please join the <a href="http://groups.google.com/group/upstate-rails">mailing list</a> for more details.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/past/2006/03/14/gridview-s-objectdatasource-support/">Gridview&#8217;s Object Data Source Support</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-03-14T05:00:00-05:00" pubdate data-updated="true">Mar 14<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was really excited when I first caught wind of the the ObjectDataSource (ODS) control for ASP.NET. Finally Microsoft is helping those that want to implement a true business layer and bind it&#8217;s results to the UI.</p>
+
+<p>Many of the &#8220;features&#8221; simply don&#8217;t work. I was unable to use the delete functionality. The GridView would not pass the proper data to the ODS. I got this little treat yesterday when I tried to use the sorting feature.</p>
+
+<div style="padding: 5px; border: dotted 1px black; text-align: center; margin-bottom: 10px;">
+!/assets/2006/10/18/gridview_sorting.png!
+</div>
+
+
+<p><em>I continue to be dumbfounded.</em></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/7/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/5/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/past/2010/11/29/cowork-the-first-month/">Co Work: The First Month</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/09/29/when-will-this-project-be-done/">When Will This Project Be Done?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/03/14/git-workflow-merge-or-rebase/">Git Workflow: Merge Or Rebase</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/03/01/webbynode-review/">Webbynode Review</a>
+      </li>
+    
+      <li class="post">
+        <a href="/past/2010/01/21/fat-free-crm-on-heroku/">Fat Free Crm On Heroku</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/ryanwood">@ryanwood</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ryanwood',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("ryanwood", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/ryanwood" class="twitter-follow-button" data-show-count="false">Follow @ryanwood</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/ryan.wood?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Ryan Wood -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ryanwood';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
