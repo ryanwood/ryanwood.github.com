@@ -44,7 +44,7 @@
   </div>
   <h1><a href="/">knock.on_wood</a></h1>
   
-    <h2>Unclear thoughts on Software Development</h2>
+    <h2>Unclear thoughts on Software Development by Ryan Wood</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -206,35 +206,6 @@ $ heroku rake crm:setup USERNAME=myusername PASSWORD=mypass EMAIL=my@email.com
       </li>
     
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  
-  <a href="https://github.com/ryanwood">@ryanwood</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'ryanwood',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 
