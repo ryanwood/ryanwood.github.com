@@ -4,7 +4,7 @@
 
 url: http://ryanwood.github.com
 title: knock.on_wood
-subtitle: Unclear thoughts on Software Development
+subtitle: Unclear thoughts on Software Development by Ryan Wood
 author: Ryan Wood
 simple_search: http://google.com/search
 description: Description
@@ -58,7 +58,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 # ----------------------- #
 
 # Github repositories
-github_user: ryanwood
+github_user:
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
