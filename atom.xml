@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[knock.on_wood]]></title>
-  <link href="http://ryanwood.github.com/atom.xml" rel="self"/>
-  <link href="http://ryanwood.github.com/"/>
-  <updated>2012-10-18T23:28:59-04:00</updated>
-  <id>http://ryanwood.github.com/</id>
+  <link href="http://blog.ryanwood.com/atom.xml" rel="self"/>
+  <link href="http://blog.ryanwood.com/"/>
+  <updated>2012-10-19T01:32:04-04:00</updated>
+  <id>http://blog.ryanwood.com/</id>
   <author>
     <name><![CDATA[Ryan Wood]]></name>
     
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Co Work: The First Month]]></title>
-    <link href="http://ryanwood.github.com/past/2010/11/29/cowork-the-first-month/"/>
+    <title type="html"><![CDATA[Cowork: The First Month]]></title>
+    <link href="http://blog.ryanwood.com/2010/11/29/cowork-the-first-month/"/>
     <updated>2010-11-29T09:04:00-05:00</updated>
-    <id>http://ryanwood.github.com/past/2010/11/29/cowork-the-first-month</id>
+    <id>http://blog.ryanwood.com/2010/11/29/cowork-the-first-month</id>
     <content type="html"><![CDATA[<p>I first saw &#8220;cowork&#8221; as a concept on a Twitter post a year or so ago. Not knowing what it was, it forced me to create a new mental category about work environments. I come from a pretty traditional work environment. For the past 10 years, I&#8217;ve worked in a fairly typical office space. It was owned (or leased) by the company by which I was employed. I had a private office with door. It was certainly better than the cubicles of my youth, but I never thought much about it. It was just the office that you had to go to each day as a part of the job.</p>
 
 <p>In August 2009, I was informed that my &#8220;job&#8221; would be ending as all software development would be moving to the home office in Houston, TX. I was given three months notice. It was November 1st before I knew it and I was no longer employed. While searching for another job, I decided to ramp up <a href="http://sourcescape.com/">Sourcescape</a>, my then part-time consulting business. The economy had other plans. I couldn&#8217;t find much work and there were no full-time jobs on the horizon.</p>
@@ -50,9 +50,9 @@
   
   <entry>
     <title type="html"><![CDATA[When Will This Project Be Done?]]></title>
-    <link href="http://ryanwood.github.com/past/2010/09/29/when-will-this-project-be-done/"/>
+    <link href="http://blog.ryanwood.com/2010/09/29/when-will-this-project-be-done/"/>
     <updated>2010-09-29T19:25:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2010/09/29/when-will-this-project-be-done</id>
+    <id>http://blog.ryanwood.com/2010/09/29/when-will-this-project-be-done</id>
     <content type="html"><![CDATA[<p>I&#8217;m in the process of figuring out the best way to estimate time and cost on a proposal for an agile project. It&#8217;s always a tricky thing. Agile, by nature, is constantly embracing change and harnessing it for the good of the product and the client. So how do you communicate when it will be done or for that matter estimate how much it will cost?</p>
 
 <p>I came across this quote from Ron Jeffries. It was so well put, I developed a giddy little grin and shouted out &#8220;AMEN&#8221;!</p>
@@ -69,9 +69,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git Workflow: Merge Or Rebase]]></title>
-    <link href="http://ryanwood.github.com/past/2010/03/14/git-workflow-merge-or-rebase/"/>
+    <link href="http://blog.ryanwood.com/2010/03/14/git-workflow-merge-or-rebase/"/>
     <updated>2010-03-14T08:09:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2010/03/14/git-workflow-merge-or-rebase</id>
+    <id>http://blog.ryanwood.com/2010/03/14/git-workflow-merge-or-rebase</id>
     <content type="html"><![CDATA[<p>One of the things that I&#8217;m passionate about is the development process. So much of the battle is won or lost by the type of development process you have. Leaning on a <a href="http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html">couple</a> <a href="http://nvie.com/archives/323">smart</a> guys, I&#8217;ve established a very clean workflow in git. If you haven&#8217;t read these posts, please do so before continuing. Both are excellent and will help clarify my question.</p>
 
 <p>The only discrepancy between them is how to handle feature branches. Should you interactively rebase (<code>git rebase -i</code>) your feature branch to one commit (or possibly a couple)?  <a href="http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html">Rein</a> takes this approach. <a href="http://nvie.com/archives/323">Vincent</a> on the other hand prefers to leave the feature branch intact and do a non-fast forward  merge (<code>git merge --no-ff feature</code>) to merge the feature back into the develop branch.</p>
@@ -88,9 +88,9 @@
   
   <entry>
     <title type="html"><![CDATA[Webbynode Review]]></title>
-    <link href="http://ryanwood.github.com/past/2010/03/01/webbynode-review/"/>
+    <link href="http://blog.ryanwood.com/2010/03/01/webbynode-review/"/>
     <updated>2010-03-01T03:04:00-05:00</updated>
-    <id>http://ryanwood.github.com/past/2010/03/01/webbynode-review</id>
+    <id>http://blog.ryanwood.com/2010/03/01/webbynode-review</id>
     <content type="html"><![CDATA[<p>For the past few years, I&#8217;ve used <a href="http://www.slicehost.com">Slicehost</a> for all my production hosting needs. I have been very happy with them. Recently I had a need for a new staging server. It takes a good amount of time to set up a site from scratch on Slicehost, which is fine for production servers, but I needed a site up quickly.</p>
 
 <p>I&#8217;ve been using <a href="http://heroku.com">Heroku&#8217;s incredible service</a> recently for staging sites. This site however had a ton of uploaded images and I really did want to go through the hassle of setting up S3 for use with Heroku. So I started looking for other options and found <a href="http://webbynode.com">Webbynode</a>.</p>
@@ -103,9 +103,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fat Free Crm On Heroku]]></title>
-    <link href="http://ryanwood.github.com/past/2010/01/21/fat-free-crm-on-heroku/"/>
+    <link href="http://blog.ryanwood.com/2010/01/21/fat-free-crm-on-heroku/"/>
     <updated>2010-01-21T18:34:00-05:00</updated>
-    <id>http://ryanwood.github.com/past/2010/01/21/fat-free-crm-on-heroku</id>
+    <id>http://blog.ryanwood.com/2010/01/21/fat-free-crm-on-heroku</id>
     <content type="html"><![CDATA[<p>I created a <a href="http://github.com/ryanwood/fat_free_crm">fork on github</a> to ease deployment of <a href="http://www.fatfreecrm.com/">Fat Free CRM</a> to <a href="http://heroku.com/">Heroku</a>. I found this <a href="http://saturnflyer.com/blog/jim/2009/09/08/fat-free-crm-on-heroku/">great post</a> about doing this very thing, but I wanted something a little simpler.</p>
 
 <p>For the impatient, here&#8217;s the quick Heroku install:</p>
@@ -134,9 +134,9 @@ $ heroku rake crm:setup USERNAME=myusername PASSWORD=mypass EMAIL=my@email.com
   
   <entry>
     <title type="html"><![CDATA[Bye Bye Vlad]]></title>
-    <link href="http://ryanwood.github.com/past/2010/01/21/bye-bye-vlad/"/>
+    <link href="http://blog.ryanwood.com/2010/01/21/bye-bye-vlad/"/>
     <updated>2010-01-21T18:23:00-05:00</updated>
-    <id>http://ryanwood.github.com/past/2010/01/21/bye-bye-vlad</id>
+    <id>http://blog.ryanwood.com/2010/01/21/bye-bye-vlad</id>
     <content type="html"><![CDATA[<p>I was initially enamored with the <a href="http://www.capify.org">capistrano</a> like features, yet simplicity of <a href="http://rubyhitsquad.com/Vlad_the_Deployer.html">Vlad the Deployer</a>. I spent 2 days getting the &#8220;simplifed deploy&#8221; working. Well, I thought it was anyway. Turns out that it wasn&#8217;t deploying the correct version from git.</p>
 
 <p>I found a <a href="http://github.com/jbarnette/vlad-git/issues#issue/1">bug in Vlad</a> which was fixed in master, but wasn&#8217;t in the gem. Then I found another bug in the <a href="http://github.com/jbarnette/vlad-git">vlad-git</a>. It turns out <a href="http://github.com/ktheory/">ktheory</a> had forks of each with the bugs fixed, but with different gems. I tried to use those, but still wasn&#8217;t getting the expected results.</p>
@@ -160,9 +160,9 @@ $ heroku rake crm:setup USERNAME=myusername PASSWORD=mypass EMAIL=my@email.com
   
   <entry>
     <title type="html"><![CDATA[Ubuntu Hardy Lts Slice With Nginx, Passenger, Git, Vlad And More!]]></title>
-    <link href="http://ryanwood.github.com/past/2010/01/15/ubuntu-hardy-lts-slice-with-nginx-passenger-git-vlad-and-more/"/>
+    <link href="http://blog.ryanwood.com/2010/01/15/ubuntu-hardy-lts-slice-with-nginx-passenger-git-vlad-and-more/"/>
     <updated>2010-01-15T18:41:00-05:00</updated>
-    <id>http://ryanwood.github.com/past/2010/01/15/ubuntu-hardy-lts-slice-with-nginx-passenger-git-vlad-and-more</id>
+    <id>http://blog.ryanwood.com/2010/01/15/ubuntu-hardy-lts-slice-with-nginx-passenger-git-vlad-and-more</id>
     <content type="html"><![CDATA[<p>I finally did it. I took notes as I built a server and am posting it (mainly so I don&#8217;t forget). In case someone wants to print this, I left most of the URLs in text so you&#8217;d be able to read them. So here it goes.</p>
 
 <p>I am doing this on <a href="http://slicehost.com">Slicehost</a> and decided to user Ubuntu Hardy 8.04.2 as the OS maily for the long term support.</p>
@@ -307,9 +307,9 @@ Add the following to <code>~/.ssh/config</code> as noted <a href="http://github.
   
   <entry>
     <title type="html"><![CDATA[Why I Left Heroku]]></title>
-    <link href="http://ryanwood.github.com/past/2010/01/15/why-i-left-heroku/"/>
+    <link href="http://blog.ryanwood.com/2010/01/15/why-i-left-heroku/"/>
     <updated>2010-01-15T13:46:00-05:00</updated>
-    <id>http://ryanwood.github.com/past/2010/01/15/why-i-left-heroku</id>
+    <id>http://blog.ryanwood.com/2010/01/15/why-i-left-heroku</id>
     <content type="html"><![CDATA[<p>I love <a href="http://heroku.com">Heroku</a>, I really do. They have eliminated nearly all of the hassle surrounding  deployment and server management in the Ruby/Rails world. Here&#8217;s the rub&#8230;</p>
 
 <p><em>They are simply not affordable for the little guy.</em></p>
@@ -336,9 +336,9 @@ Add the following to <code>~/.ssh/config</code> as noted <a href="http://github.
   
   <entry>
     <title type="html"><![CDATA[The Brave New World]]></title>
-    <link href="http://ryanwood.github.com/past/2009/11/18/the-brave-new-world/"/>
+    <link href="http://blog.ryanwood.com/2009/11/18/the-brave-new-world/"/>
     <updated>2009-11-18T17:39:00-05:00</updated>
-    <id>http://ryanwood.github.com/past/2009/11/18/the-brave-new-world</id>
+    <id>http://blog.ryanwood.com/2009/11/18/the-brave-new-world</id>
     <content type="html"><![CDATA[<p>My employer called me this summer while I was on vacation at the beach with my family to let me know that the doors to our office would be closed upon my return. Not the best news to get when you&#8217;re trying to get refreshed and renew the mind.</p>
 
 <p>Thankfully they gave us a three month window to work from home. That window ended October 31, 2009. I have been toying with the idea of making a living as a consultant for, say, about 10 years now but never had the courage to pull the trigger. I guess I can thank First Data for pulling that trigger for me.</p>
@@ -349,9 +349,9 @@ Add the following to <code>~/.ssh/config</code> as noted <a href="http://github.
   
   <entry>
     <title type="html"><![CDATA[Learning Erlang]]></title>
-    <link href="http://ryanwood.github.com/past/2009/09/26/learning-erlang/"/>
+    <link href="http://blog.ryanwood.com/2009/09/26/learning-erlang/"/>
     <updated>2009-09-26T06:55:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/09/26/learning-erlang</id>
+    <id>http://blog.ryanwood.com/2009/09/26/learning-erlang</id>
     <content type="html"><![CDATA[<p>I was out on a date with my wife last week and in usual fashion, we popped into a Barnes &amp; Noble. She grabbed the lastest edition of People magazine and I wandered over the the &#8220;geek&#8221; section to browse what&#8217;s new. I picked up <a href="http://www.amazon.com/gp/product/193435600X?ie=UTF8&tag=knockonwood-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=193435600X">Programming Erlang: Software for a Concurrent World</a><img src="http://www.assoc-amazon.com/e/ir?t=knockonwood-20&l=as2&o=1&a=193435600X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />. I figured I would just skim through it put is back but I got hooked.</p>
 
 <p>I&#8217;m not sure why, but I really I got hooked. I bought the book. Being primarily a web developer, I have no idea what I&#8217;d even use Erlang for, but I haven&#8217;t really learned a different paradigm of programming a number of years. So the journey begins. Maybe I&#8217;ll burn out with it or maybe I&#8217;ll build a bridge and be able to see where I could use it in the future or maybe it will just help be to be a more well rounded developer. Time will tell.</p>
@@ -360,9 +360,9 @@ Add the following to <code>~/.ssh/config</code> as noted <a href="http://github.
   
   <entry>
     <title type="html"><![CDATA[Deploying Refinery On Heroku]]></title>
-    <link href="http://ryanwood.github.com/past/2009/09/18/deploying-refinery-on-heroku/"/>
+    <link href="http://blog.ryanwood.com/2009/09/18/deploying-refinery-on-heroku/"/>
     <updated>2009-09-18T09:50:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/09/18/deploying-refinery-on-heroku</id>
+    <id>http://blog.ryanwood.com/2009/09/18/deploying-refinery-on-heroku</id>
     <content type="html"><![CDATA[<p>Recently, I have been exploring <a href="http://refinerycms.com/">Refinery</a>, a relatively new Rails-based CMS. So far I&#8217;ve been very impressed. One of the sites I been implementing in Refinery will be deployed to <a href="http://heroku.com/">Heroku</a> which has <a href="http://docs.heroku.com/constraints">some constraints</a> which cause the out-of-the-box version of Refinery to fail. Here&#8217;s how to get it working if you&#8217;re interested.</p>
 
 <p><em>Updated [9/19/2009]: After corresponding with <a href="http://www.d-jones.com/">David</a> at <a href="http://resolvedigital.co.nz/">Resolve Digital</a>, I added step 2 and corrected a couple of file references. Thanks for the input David.</em></p>
@@ -467,18 +467,18 @@ acts_as_indexed :fields =&gt; [:title], :index_file =&gt; [RAILS_ROOT,'tmp','ind
   
   <entry>
     <title type="html"><![CDATA[Haml/Sass 2.2 Is Out]]></title>
-    <link href="http://ryanwood.github.com/past/2009/07/07/hamlsass-22-is-out/"/>
+    <link href="http://blog.ryanwood.com/2009/07/07/hamlsass-22-is-out/"/>
     <updated>2009-07-07T05:28:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/07/07/hamlsass-22-is-out</id>
+    <id>http://blog.ryanwood.com/2009/07/07/hamlsass-22-is-out</id>
     <content type="html"><![CDATA[<p>Anyone who knows me knows that I&#8217;m a big fan of Haml and Sass. They simplify and clean up so much HTML-related code. The new version promises some <a href="http://nex-3.com/posts/84-haml-sass-2-2-released">nice new features</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Improving By Gits And Bounds]]></title>
-    <link href="http://ryanwood.github.com/past/2009/06/20/improving-by-gits-and-bounds/"/>
+    <link href="http://blog.ryanwood.com/2009/06/20/improving-by-gits-and-bounds/"/>
     <updated>2009-06-20T08:23:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/06/20/improving-by-gits-and-bounds</id>
+    <id>http://blog.ryanwood.com/2009/06/20/improving-by-gits-and-bounds</id>
     <content type="html"><![CDATA[<p>Subversion (SVN) has been a staple of my development process since I ran kicking and screaming out of the Visual SourceSafe (VSS) dungeon many years old. It has served me very well. I used the basic edit-commit-merge life-cycle and all was good. Here’s the strange thing.</p>
 
 <p><strong>I didn’t really learn how to use subversion specifically, or really version control in general, until I quit using subversion and started using git.</strong></p>
@@ -505,9 +505,9 @@ acts_as_indexed :fields =&gt; [:title], :index_file =&gt; [RAILS_ROOT,'tmp','ind
   
   <entry>
     <title type="html"><![CDATA[Slither: A Dsl For Parsing Fixed Width Text Files]]></title>
-    <link href="http://ryanwood.github.com/past/2009/06/12/slither-a-dsl-for-parsing-fixed-width-text-files/"/>
+    <link href="http://blog.ryanwood.com/2009/06/12/slither-a-dsl-for-parsing-fixed-width-text-files/"/>
     <updated>2009-06-12T12:54:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/06/12/slither-a-dsl-for-parsing-fixed-width-text-files</id>
+    <id>http://blog.ryanwood.com/2009/06/12/slither-a-dsl-for-parsing-fixed-width-text-files</id>
     <content type="html"><![CDATA[<p>Given the rage over XML and web services over the past decade or so, I was shocked at how common it is to still exchange data using a fixed-width file format over FTP. I guess it&#8217;s all about those mainframes and backward compatibility, but &#8220;WOW&#8221;.</p>
 
 <p>At <a href="http://firstdata.com">work</a> I have had numerous projects (mostly in Ruby) that involve creating and/or reading these fixed-width text files. Occasionally, I have the luxury of a CSV file and can use <a href="http://fastercsv.rubyforge.org/">FasterCSV</a> to take care of business. To date, I haven&#8217;t had a single project that used XML.</p>
@@ -615,9 +615,9 @@ sudo gem install ryanwood-slither
   
   <entry>
     <title type="html"><![CDATA[Whenever: Cron...The Ruby Way]]></title>
-    <link href="http://ryanwood.github.com/past/2009/06/11/whenever-cron-the-ruby-way/"/>
+    <link href="http://blog.ryanwood.com/2009/06/11/whenever-cron-the-ruby-way/"/>
     <updated>2009-06-11T05:16:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/06/11/whenever-cron-the-ruby-way</id>
+    <id>http://blog.ryanwood.com/2009/06/11/whenever-cron-the-ruby-way</id>
     <content type="html"><![CDATA[<p>Many Rails app need to make use of cron in some form or fashion. <a href="http://github.com/javan/whenever/tree/master">Whenever</a> is a great little DSL for creating, organizing, managing, and deploying your app related cron jobs.</p>
 
 <p>Here&#8217;s an example from the <a href="http://wiki.github.com/javan/whenever/instructions-and-examples">wiki</a>. You simply install the gem and run <code>wheneverize</code> in your root dir. Then add the following to your <code>config/schedule.rb</code> file:</p>
@@ -646,9 +646,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[Git Cherry To The Rescue]]></title>
-    <link href="http://ryanwood.github.com/past/2009/06/05/git-cherry-to-the-rescue/"/>
+    <link href="http://blog.ryanwood.com/2009/06/05/git-cherry-to-the-rescue/"/>
     <updated>2009-06-05T06:02:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/06/05/git-cherry-to-the-rescue</id>
+    <id>http://blog.ryanwood.com/2009/06/05/git-cherry-to-the-rescue</id>
     <content type="html"><![CDATA[<p>I&#8217;ve been trying to find a simple way to find out the commit differences in two git branches for while now. I resorted to using <code>git show-branch</code> which works pretty well, but can get cumbersome when you have a lot of branches. I just discovered <a href="http://kernel.org/pub/software/scm/git/docs/git-cherry.html"><code>git cherry</code></a> is just want I&#8217;ve been looking for.</p>
 
 <p>This will show the commit differences between my-dev-branch and master.</p>
@@ -665,18 +665,18 @@ $ git cherry -v master
   
   <entry>
     <title type="html"><![CDATA[Mac Update Spring 2009 Bundle]]></title>
-    <link href="http://ryanwood.github.com/past/2009/05/29/macupdate-spring-2009-bundle/"/>
+    <link href="http://blog.ryanwood.com/2009/05/29/macupdate-spring-2009-bundle/"/>
     <updated>2009-05-29T06:00:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/05/29/macupdate-spring-2009-bundle</id>
+    <id>http://blog.ryanwood.com/2009/05/29/macupdate-spring-2009-bundle</id>
     <content type="html"><![CDATA[<p>For you mac users, check out the <a href="http://www.mupromo.com/">MacUpdate Spring Bundle</a>. It&#8217;s similar to the rockin&#8217; <a href="http://www.macheist.com/">MacHeist Bundle</a> that was offered a month or so ago. For $49 you get 11+ great apps including <a href="http://www.parallels.com/">Parallels</a> and <a href="http://www.micromat.com/index.php?option=com_content&amp;task=view&amp;id=202&amp;Itemid=107">TechTool Pro</a>. Sold.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Git   Making The Switch]]></title>
-    <link href="http://ryanwood.github.com/past/2009/05/28/git-making-the-switch/"/>
+    <link href="http://blog.ryanwood.com/2009/05/28/git-making-the-switch/"/>
     <updated>2009-05-28T02:54:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/05/28/git-making-the-switch</id>
+    <id>http://blog.ryanwood.com/2009/05/28/git-making-the-switch</id>
     <content type="html"><![CDATA[<p>I am using <a href="http://git-scm.com/">git</a> for all new projects. For the active ones that are still on <a href="http://subversion.tigris.org/">subversion</a> I&#8217;m using <a href="http://www.kernel.org/pub/software/scm/git-core/docs/git-svn.html">git-svn</a>. It is true&#8211; git-svn is a <a href="http://www.robbyonrails.com/articles/2008/04/10/git-svn-is-a-gateway-drug">gateway drug</a>. While git provides a number of <a href="http://whygitisbetterthanx.com/#svn">advantages over subversion</a>, there are a number of hurdles to overcome if you decide to switch.</p>
 
 <h2>Command Line</h2>
@@ -699,9 +699,9 @@ $ git cherry -v master
   
   <entry>
     <title type="html"><![CDATA[Googling Myself]]></title>
-    <link href="http://ryanwood.github.com/past/2009/05/27/googling-myself/"/>
+    <link href="http://blog.ryanwood.com/2009/05/27/googling-myself/"/>
     <updated>2009-05-27T15:23:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/05/27/googling-myself</id>
+    <id>http://blog.ryanwood.com/2009/05/27/googling-myself</id>
     <content type="html"><![CDATA[<p>For some reason I googled myself tonight. Of interest, I found that I am:</p>
 
 <ul>
@@ -726,9 +726,9 @@ $ git cherry -v master
   
   <entry>
     <title type="html"><![CDATA[The Ruby Toolbox]]></title>
-    <link href="http://ryanwood.github.com/past/2009/05/27/the-ruby-toolbox/"/>
+    <link href="http://blog.ryanwood.com/2009/05/27/the-ruby-toolbox/"/>
     <updated>2009-05-27T04:06:00-04:00</updated>
-    <id>http://ryanwood.github.com/past/2009/05/27/the-ruby-toolbox</id>
+    <id>http://blog.ryanwood.com/2009/05/27/the-ruby-toolbox</id>
     <content type="html"><![CDATA[<p>Speaking of gems, <a href="http://www.rubyinside.com">Ruby Inside</a> has a <a href="http://www.rubyinside.com/the-ruby-toolbox-see-the-most-popular-ruby-libraries-by-usage-1776.html">great post</a> on the <a href="http://ruby-toolbox.com/">Ruby ToolBox</a>.</p>
 
 <blockquote><p>&#8220;The Ruby Toolbox gives Ruby developers a categorized overview of 100 or so different libraries ranked on how commonly used they are. It&#8217;s not perfect as it only pays attention to projects hosted on Github and the ranking system is based on the number of watchers and forks they have, but it&#8217;s enough to give you a basic overview of the activity within a certain area.&#8221;</p></blockquote>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: architecture | knock.on_wood]]></title>
+  <link href="http://blog.ryanwood.com/blog/categories/architecture/atom.xml" rel="self"/>
+  <link href="http://blog.ryanwood.com/"/>
+  <updated>2012-10-19T01:32:04-04:00</updated>
+  <id>http://blog.ryanwood.com/</id>
+  <author>
+    <name><![CDATA[Ryan Wood]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Premature Extraction]]></title>
+    <link href="http://blog.ryanwood.com/2006/11/15/premature-extraction/"/>
+    <updated>2006-11-15T08:33:00-05:00</updated>
+    <id>http://blog.ryanwood.com/2006/11/15/premature-extraction</id>
+    <content type="html"><![CDATA[<p><a href="http://www.therailsway.com">The Rails Way</a> is off with their first code review. It is really great to see into the coding process of top notch hackers. Their <a href="http://www.therailsway.com/2006/11/15/tracks-part-1">first review</a> deals with "acts_as" code modules and "premature extraction". <a href="http://www.koziarski.net/">Koz</a> keeps it simple.</p>
+
+<p>bq. These both illustrate a common anti-pattern I see with rails programmers: premature extraction. Just because rails has a bunch of meta programming magic with names like acts_as_list, doesn’t mean you need it.</p>
+
+<p>The process is all about keeping it simple and extracting only when you need to. I've been learning more and more about that in a Ruby application I've been working on lately. It is a challenge, especially coming from .NET, to not overly abstract early.</p>
+]]></content>
+  </entry>
+  
+</feed>
