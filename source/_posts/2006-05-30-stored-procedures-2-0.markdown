@@ -3,11 +3,11 @@ layout: post
 title: "Stored Procedures 2.0?"
 date: 2006-05-30 06:19
 comments: true
-tags: []
+tags:
 ---
 Coming from a Microsoft platform background, I'm well versed in the stored procedure mantra, which practically equates to "use them everywhere". Over the past year or so, I've starting [questioning that assumption](http://codebetter.com/blogs/jeremy.miller/archive/2006/05/25/145450.aspx.) While stored procs are useful, they do more to add unneccessary complexity to application development.
 
-[Jeff Atwood](http://www.codinghorror.com/blog) offers up a compelling (yet slightly dated) argument for reducing the scope of stored procs in his post [Who needs Stored Procedures, anyways?](http://www.codinghorror.com/blog/archives/000117.html) 
+[Jeff Atwood](http://www.codinghorror.com/blog) offers up a compelling (yet slightly dated) argument for reducing the scope of stored procs in his post [Who needs Stored Procedures, anyways?](http://www.codinghorror.com/blog/archives/000117.html)
 
 bq. For modern databases and real world usage scenarios, I believe a Stored Procedure architecture has serious downsides and little practical benefit. *Stored Procedures should be considered database assembly language: for use in only the most performance critical situations.* There are plenty of ways to design a solid, high performing data access layer without resorting to Stored Procedures; you'll realize a lot of benefits if you stick with parameterized SQL and a single coherent development environment.
 

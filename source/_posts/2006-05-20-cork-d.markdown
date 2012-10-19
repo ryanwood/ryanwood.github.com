@@ -3,6 +3,6 @@ layout: post
 title: "Cork'd"
 date: 2006-05-20 07:35
 comments: true
-tags: []
+tags:
 ---
 Sometimes, well almost all the time, I really wish I had better design skills. [Dan Cederholm](http://www.simplebits.com) and [Dan Benjamin](http://www.hivelogic.com) put together a great (and nicely designed) site for wine aficionados called [Cork'd](http://www.corkd.com.) Looks like lot of fun.

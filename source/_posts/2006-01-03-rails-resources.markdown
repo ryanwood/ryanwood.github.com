@@ -3,7 +3,7 @@ layout: post
 title: "Rails Resources"
 date: 2006-01-03 03:34
 comments: true
-tags: []
+tags:
 ---
 I know most of the people who read this (all 2 of you) don't use Rails. Maybe you want to, maybe you don't. Either way I'm still going to talk about it. ; )
 

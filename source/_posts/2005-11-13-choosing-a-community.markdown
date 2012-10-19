@@ -3,7 +3,7 @@ layout: post
 title: "Choosing A Community"
 date: 2005-11-13 13:55
 comments: true
-tags: []
+tags:
 ---
 "But when you choose a language, you're also choosing a community."
 
@@ -17,6 +17,6 @@ CF developer community was vibrant. Initially I could have asked for nothing mor
 
 Desiring a little more depth, and my company needing to become a bit more `enterprisey`, we faced the Java/.NET question. We landed on .NET as the vast majority of the company is on a Windows platform. Initially it was great. The toolset far superseded that of CF. In my experience however, the community was a step backwards. The ASP.NET community is huge and complicated. I also find it impersonal and somewhat sterile. It just lacked warmth. When you have a question, the answer IS out there. You just need to keep googling until you find it. Hopefully it's not a `known bug` that Microsoft will be fixed sometime in the next few years. Dread. What I haven't found is a close knit focused group who know what they are doing, where they are going, and are willing to help others grow as a developer.
 
-Enter the Rails community. They are an intelligent, helpful, and focused. More importantly there is an innate love for coding and design and doing things the best way possible. This love comes through as being always willing to pull another up by sharing one's experience, knowledge, and even code. 
+Enter the Rails community. They are an intelligent, helpful, and focused. More importantly there is an innate love for coding and design and doing things the best way possible. This love comes through as being always willing to pull another up by sharing one's experience, knowledge, and even code.
 
 My intention is not to hold out one community as better than another. That's just foolish. I will say that your community experience will determine, to a large degree, your success and enjoyment of a particular language. Paul Graham's was right. So, find a community that you enjoy. Participate. Contribute. Leave it better than you found it. And have fun.

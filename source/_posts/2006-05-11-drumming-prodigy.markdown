@@ -3,7 +3,7 @@ layout: post
 title: "Drumming Prodigy"
 date: 2006-05-11 05:51
 comments: true
-tags: []
+tags:
 ---
 I've been a drummer since 7th grade. Currently I keep my chops by playing in a band for the little guys (1-6th grade) at [church](http://www.gracechurchsc.org.) Though it's definitely more tame than some of the bands I've been in previous, it's still a lot of fun.
 

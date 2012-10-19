@@ -3,7 +3,7 @@ layout: post
 title: "Ajax Framework Comparison"
 date: 2006-02-01 10:39
 comments: true
-tags: []
+tags:
 ---
 With all the buzz about AJAX, it's important to look at the frameworks that are being built to handle the xmlhttp abstraction. [Milan Negovan](http://www.aspnetresources.com) wrote a  [nice little comparsion](http://www.aspnetresources.com/blog/prototype_vs_atlas.aspx) between [Prototype](http://prototype.conio.net/,) an open source javascript library (built into Rails) and [Atlas](http://www.asp.net/default.aspx?tabindex=7&tabid=47,) Microsoft's (yet to be released) abstraction layer. Here's his conclusion:
 

@@ -3,7 +3,7 @@ layout: post
 title: "Why You Shouldn't Compete With 37 Signals"
 date: 2006-10-31 11:52
 comments: true
-tags: []
+tags:
 ---
 People either love or hate them. Many want to be them. Most small shop want to imitate them. Dharmesh Shah from [OnStartups.com](http://onstartups.com) has a great post on [Why You Shouldn't Compete With them](http://feeds.feedburner.com/~r/onstartups/~3/41880634/StartupsWhyYouShouldntCompeteWith37Signals.aspx).
 

@@ -3,13 +3,13 @@ layout: post
 title: "Conferences And Such"
 date: 2005-11-12 14:06
 comments: true
-tags: [conference microsoft]
+tags:
 ---
-I just got back from [DevConnections](http://www.devconnections.com) held in Las Vegas. As I sat in a session, I began wondering why conferences don't _move_ me anymore. 
+I just got back from [DevConnections](http://www.devconnections.com) held in Las Vegas. As I sat in a session, I began wondering why conferences don't _move_ me anymore.
 
 I remember, not too long ago, when I went to my first professional developers conference, Macromedia DevCon 2001. I learned exciting new techniques, the next killer features, and new technologies. It charged me up for months...
 
-Now, all that is gone. Maybe it was the newness of the conference atmosphere, or maybe it was simply that I had soooo much to learn at that point in my career. 
+Now, all that is gone. Maybe it was the newness of the conference atmosphere, or maybe it was simply that I had soooo much to learn at that point in my career.
 
 [DevConnections](http://www.devconnections.com) is a Microsoft-centric conference. I think that plays into it as well. A couple of things struck me.
 

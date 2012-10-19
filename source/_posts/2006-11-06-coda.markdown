@@ -3,7 +3,7 @@ layout: post
 title: "Coda"
 date: 2006-11-06 07:08
 comments: true
-tags: [coda personal]
+tags: [coda, personal]
 ---
 <img alt="Coda comes home" src="http://ryanw.smugmug.com/photos/109594815_ECBPH-S-1.jpg" style="float:left; padding: 10px;" />
 Hopefully this won't completely kill my new commitment to blogging. We'll see. We add a new member to the family this weekend. Introducing "Coda"...

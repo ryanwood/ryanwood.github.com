@@ -3,7 +3,7 @@ layout: post
 title: "Premature Extraction"
 date: 2006-11-15 08:33
 comments: true
-tags: [rails architecture]
+categories: [rails, architecture]
 ---
 [The Rails Way](http://www.therailsway.com) is off with their first code review. It is really great to see into the coding process of top notch hackers. Their [first review](http://www.therailsway.com/2006/11/15/tracks-part-1) deals with "acts\_as" code modules and "premature extraction". [Koz](http://www.koziarski.net/) keeps it simple.
 

@@ -3,7 +3,7 @@ layout: post
 title: "Moving To A Css Layout"
 date: 2006-01-14 03:10
 comments: true
-tags: []
+tags:
 ---
 For the past 3 years or so, there has been a shift in the web design field away from table based layouts toward the nirvana of standards-based, xhtml compliant, CSS driven layout. It is often a frustrating topic for those that have used tables for layout (pretty much every designer/developer I know). So most, despite noble intentions, end up doing a hybrid design (tables & CSS) or simply abandon CSS layout all together using CSS solely for formatting.
 

@@ -3,7 +3,7 @@ layout: post
 title: "Monitoring Your Servers"
 date: 2006-10-18 05:42
 comments: true
-tags: [tools server]
+tags: [tools, server]
 ---
 ![Montastic](http://www.montastic.com/images/twouponedown.jpg)
 
