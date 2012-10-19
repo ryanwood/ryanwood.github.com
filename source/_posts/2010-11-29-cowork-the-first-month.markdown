@@ -1,11 +1,9 @@
 ---
 layout: post
-title: "CoWork: The First Month"
-date: 2010-11-29 14:04
+title: "Co Work: The First Month"
+date: 2010-11-29 09:04
 comments: true
-categories:
-  - cowork
-  - business
+tags: [cowork business]
 ---
 I first saw "cowork" as a concept on a Twitter post a year or so ago. Not knowing what it was, it forced me to create a new mental category about work environments. I come from a pretty traditional work environment. For the past 10 years, I've worked in a fairly typical office space. It was owned (or leased) by the company by which I was employed. I had a private office with door. It was certainly better than the cubicles of my youth, but I never thought much about it. It was just the office that you had to go to each day as a part of the job.
 

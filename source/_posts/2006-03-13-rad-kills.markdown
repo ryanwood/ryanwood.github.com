@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Rad Kills??"
+date: 2006-03-13 06:57
+comments: true
+tags: []
+---
+[Jeffrey Palermo](http://codebetter.com/blogs/jeffrey.palermo,) in a recent blog post makes the claim that [RAD Kills](http://codebetter.com/blogs/jeffrey.palermo/archive/2006/02/20/138778.aspx.) I feel his pain, especially on the ASP.NET platform. 
+
+bq. RAD is quick and satisfies in the short term.  Sometimes it's amazing how many features can be created just by some dragging and dropping.  You could whip out an entire system in a week.  It's almost too good to be true.
+
+His point is well taken, but I think he's aiming his gun at the wrong guy. It's Microsoft's _implementation_ of RAD that is the problem, not RAD itself. Drag-n-drop, and numerous other features in the MS bag of tricks, encourage a blissful ignorance about what is going on beneath the covers. Even Bill himself stated at PDC 2005 that MS's goal is to have developers "write less code". What he _means_ is that they will _hide_ more code from you, so you don't have to (and oftern can't) deal with the implementation details. When you do need to get to a little bit lower level, you can't because the code is auto-magically generated on the fly. I digress...
+
+The implementation is the issue. Anyone who reads this blog knows that I have been infatuated with [Rails](http://www.rubyonrails.com) for the past 9 months or so. Rails, in comparison, provides a very rapid development experience, but without the "dumbing down" effect. It answers the RAD call with better, cleaner, more effective code that encourages best practices, intrinsic object orientation, sustainable productivity, and multiple degrees of testing. The Rails core team actually make it _difficult_ to add bad code to the system, all the while giving a RAD experience. 
+
+Some may argue that Rails generates code and has [ActiveRecord](http://api.rubyonrails.org/classes/ActiveRecord/Base.html) and others that hide the implementation of common features. Absolutely! That one of the things that makes it a great framework. How is that different from Microsoft's WYSIWYG? It uses best practices, adheres to web standards, and gives you full access to the underlying code. This allows to you _properly_ extend the generated code to meet the applications needs.
+
+bq. RAD is quick, but it incurs huge technical debt.  RAD is like consumer credit.  You can have it now, but will you really have time to clean it up later?
+
+Miicrosoft is among the ranks of credit card and car title loan companies that paint a picture of freedom and flexiblility by using their product, yet leave their consumer's frustrated, in debt and with many unrealized promises.
+
+Unfortunately, Microsoft's _core purpose_ is not to make us better developers. It is simply to sell another copy of Windows, Office, Visual Studio or whatever. Hence, there is no conflict for them when adding a tool to help someone accomplish "the end" (i.e. an application) without understanding the means to that end.
+
+There a delicate balance to be maintained between RAD and quality. Though one must decide what is primary, they can co-exist and even reinforce one another.

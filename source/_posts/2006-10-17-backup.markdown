@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Backup"
+date: 2006-10-17 19:34
+comments: true
+tags: []
+---
+I was searching for some examples of DSL Ruby development and stumbled upn this little GEM. [Backup](http://tech.natemurray.com/backup/) is a DSL focusing on backups. It looks very well done, cut from the same mold (even using some of the same code) as capistrano.

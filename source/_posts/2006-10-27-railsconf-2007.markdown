@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Rails Conf 2007"
+date: 2006-10-27 14:00
+comments: true
+tags: []
+---
+The [site](http://conferences.oreillynet.com/rails/) is up and the countdown is on. RailsConf is in Portland this year from May 17-20. Better plan to buy tickets early as they sold out in a few days last year. (They haven't annouced when tickets will be available yet.)
